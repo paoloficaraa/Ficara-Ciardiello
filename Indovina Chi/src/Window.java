@@ -1,6 +1,7 @@
 
 import java.awt.Canvas;
 import java.awt.Dimension;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 /*
@@ -8,24 +9,28 @@ import javax.swing.JFrame;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author ficara_paolo
  */
-public class Window extends Canvas  {
-    
+public class Window extends Canvas {
+
     private static final long serialVersionUID = -240840600533728354L;
-    
-    public Window(int width, int height, String title, Game game){
+
+    public Window(int width, int height, String title, Game game) {
         JFrame frame = new JFrame(title);
         frame.setPreferredSize(new Dimension(width, height));
         frame.setMaximumSize(new Dimension(width, height));
         frame.setMinimumSize(new Dimension(width, height));
-        
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
+
+        JButton b = new JButton("START");
+        b.setBounds(625, 310, 100, 30);
+        frame.add(b);
+
         frame.add(game);
         frame.setVisible(true);
         game.start();

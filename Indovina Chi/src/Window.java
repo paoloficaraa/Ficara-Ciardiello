@@ -27,9 +27,9 @@ public class Window extends Canvas {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
 
-        JButton b = new JButton("START");
+        /*JButton b = new JButton("START");
         b.setBounds(625, 310, 100, 30);
-        frame.add(b);
+        frame.add(b);*/
 
         frame.add(game);
         frame.setVisible(true);

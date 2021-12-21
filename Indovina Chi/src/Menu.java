@@ -25,6 +25,7 @@ public class Menu extends MouseAdapter {
         this.handler = handler;
     }
 
+    @Override
     public void mousePressed(MouseEvent e) {
         int mx = e.getX();
         int my = e.getY();
@@ -45,6 +46,7 @@ public class Menu extends MouseAdapter {
         }
     }
 
+    @Override
     public void mouseReleased(MouseEvent e) {
 
     }

@@ -22,20 +22,17 @@ public class Game extends Canvas implements Runnable {
     private HUD hud;
     private Menu menu;
 
-    public enum STATE {
-        Menu,
-        Game
-    };
-
     public STATE gameState = STATE.Menu;
 
     public Game() {
         handler = new Handler();
+        menu = new Menu(this, handler);
+        this.addMouseListener(menu);
         
         new Window(1280, 720, "Indovina chi?", this);
         
         hud = new HUD();
-        menu = new Menu(this);
+        
         if (gameState == STATE.Game) {
             handler.addObject(new Person(100, 100));
         }

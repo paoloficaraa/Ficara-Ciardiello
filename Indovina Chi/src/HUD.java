@@ -23,6 +23,8 @@ public class HUD {
     public void render(Graphics g){
         g.setColor(Color.black);
         g.fillRect(15, 15, 200, 32);
+        g.setColor(Color.white);
+        g.drawString("Punteggio: " + score, 80, 35);
     }
     
 }

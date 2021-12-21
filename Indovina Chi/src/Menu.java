@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
  *
  * @author ficara_paolo
  */
+
+//classe che identifica il menù
 public class Menu extends MouseAdapter {
 
     private Game game;
@@ -25,6 +27,7 @@ public class Menu extends MouseAdapter {
         this.handler = handler;
     }
 
+    //metodo che gestisce l'evento del click del mouse su un bottone del menù
     @Override
     public void mousePressed(MouseEvent e) {
         int mx = e.getX();
@@ -51,6 +54,7 @@ public class Menu extends MouseAdapter {
 
     }
 
+    //metodo privato che dice se il puntatore del mouse è sopra una determinata area
     private boolean mouseOver(int mx, int my, int x, int y, int width, int height) {
         if (mx > x && mx < x + width) {
             if (my > y && my < y + height) {

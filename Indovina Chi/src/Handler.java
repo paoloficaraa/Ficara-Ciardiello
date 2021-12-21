@@ -12,6 +12,8 @@ import java.util.LinkedList;
  *
  * @author ficara_paolo
  */
+
+//Classe gestore che gestisce ogni oggetto del gioco
 public class Handler {
     
     LinkedList<GameObject> listObject = new LinkedList<GameObject>();

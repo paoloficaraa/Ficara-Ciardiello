@@ -12,6 +12,8 @@ import java.awt.Graphics;
  *
  * @author ficara_paolo
  */
+
+//classe che descrive ogni bottone della persona
 public class Person extends GameObject {
 
     public Person(int x, int y){

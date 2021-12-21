@@ -10,6 +10,8 @@ import java.awt.Graphics;
  *
  * @author ficara_paolo
  */
+
+//Classe che identifica gli oggetti del gioco
 public abstract class GameObject {
 
     protected int x, y;

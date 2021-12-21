@@ -13,9 +13,10 @@ import java.awt.image.BufferStrategy;
  *
  * @author ficara_paolo
  */
+
+//classe che descrive il gioco
 public class Game extends Canvas implements Runnable {
 
-    private static final long serialVersionUID = -240840600533728354L;
     private boolean running = false;
     private Thread thread;
     private Handler handler;
@@ -24,6 +25,7 @@ public class Game extends Canvas implements Runnable {
 
     public STATE gameState = STATE.Menu;
 
+    //costruttore del gioco
     public Game() {
         handler = new Handler();
         menu = new Menu(this, handler);
@@ -32,10 +34,6 @@ public class Game extends Canvas implements Runnable {
         new Window(1280, 720, "Indovina chi?", this);
         
         hud = new HUD();
-        
-        if (gameState == STATE.Game) {
-            handler.addObject(new Person(100, 100));
-        }
     }
 
     public synchronized void start() {
@@ -53,6 +51,7 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
+    //metodo che identifica il framerate del gioco e associa ad ogni frame una determinata immagine
     public void run() {
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;

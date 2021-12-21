@@ -8,6 +8,7 @@
  *
  * @author paolo
  */
+//enumerazione che identifica le fasi della finestra
 public enum STATE {
     Game,
     Menu;

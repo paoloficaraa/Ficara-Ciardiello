@@ -12,6 +12,8 @@ import java.awt.Graphics;
  *
  * @author ficara_paolo
  */
+
+//classe che identifica l'hud del gioco
 public class HUD {
     
     public int score = 0;

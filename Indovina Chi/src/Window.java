@@ -13,9 +13,9 @@ import javax.swing.JFrame;
  *
  * @author ficara_paolo
  */
-public class Window extends Canvas {
 
-    private static final long serialVersionUID = -240840600533728354L;
+//classe della finestra
+public class Window extends Canvas {
 
     public Window(int width, int height, String title, Game game) {
         JFrame frame = new JFrame(title);
@@ -26,10 +26,6 @@ public class Window extends Canvas {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
-
-        /*JButton b = new JButton("START");
-        b.setBounds(625, 310, 100, 30);
-        frame.add(b);*/
 
         frame.add(game);
         frame.setVisible(true);

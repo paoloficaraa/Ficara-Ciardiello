@@ -2,6 +2,7 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
@@ -36,7 +37,11 @@ public class Menu extends MouseAdapter {
         //bottone gioca
         if (mouseOver(mx, my, 490, 150, 300, 80)) {
             game.gameState = STATE.Game;
-            handler.addObject(new Person(100, 100));
+            int x = 50, y = 100;
+            for(int i = 1; i < 9;i++, x+=150){
+                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
+            }
+            
         }
         
         //bottone aiuto

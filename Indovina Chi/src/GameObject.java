@@ -1,5 +1,6 @@
 
 import java.awt.Graphics;
+import java.awt.Image;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,10 +16,12 @@ import java.awt.Graphics;
 public abstract class GameObject {
 
     protected int x, y;
+    protected Image img;
 
-    public GameObject(int x, int y) {
+    public GameObject(int x, int y, Image img) {
         this.x = x;
         this.y = y;
+        this.img = img;
     }
 
     public abstract void tick();

@@ -33,11 +33,9 @@ public class Person extends GameObject {
 
     }
 
+    //grafica degli oggetti
     @Override
     public void render(Graphics g) {
-        //g.setColor(Color.black);
-        //g.fillRect(x, y, 32, 32);
-        //Image image = Toolkit.getDefaultToolkit().getImage("src\\images\\img1.jpg");
         Graphics2D g2d = (Graphics2D)g;
         g2d.drawImage(img, x, y, null);
     }

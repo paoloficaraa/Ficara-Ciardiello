@@ -7,37 +7,35 @@ import java.util.LinkedList;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author ficara_paolo
  */
-
 //Classe gestore che gestisce ogni oggetto del gioco
 public class Handler {
+
+    LinkedList<GameObject> listPerson = new LinkedList<GameObject>();
     
-    LinkedList<GameObject> listObject = new LinkedList<GameObject>();
-    
-    public void tick(){
-        for(GameObject object:listObject){
+    public void tick() {
+        for (GameObject object : listPerson) {
             GameObject temp = object;
             temp.tick();
         }
     }
-    
-    public void render(Graphics g){
-        for(GameObject object:listObject){
+
+    public void render(Graphics g) {
+        for (GameObject object : listPerson) {
             GameObject temp = object;
             temp.render(g);
         }
     }
-    
-    public void addObject(GameObject object){
-        listObject.add(object);
+
+    public void addObject(GameObject object) {
+        listPerson.add(object);
     }
-    
-    public void removeObject(GameObject object){
-        listObject.remove(object);
+
+    public void removeObject(GameObject object) {
+        listPerson.remove(object);
     }
-    
+
 }

@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
  *
  * @author ficara_paolo
  */
-
 //classe che identifica il menù
 public class Menu extends MouseAdapter {
 
@@ -37,19 +36,32 @@ public class Menu extends MouseAdapter {
         //bottone gioca
         if (mouseOver(mx, my, 490, 150, 300, 80)) {
             game.gameState = STATE.Game;
-            int x = 50, y = 100;
-            for(int i = 1; i < 9;i++, x+=150){
+            int x = 50, y = 70;
+            //prima fila di persone
+            for (int i = 1; i < 9; i++, x += 150) {
                 handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
             }
-            
+            x = 50;
+            y += 200;
+            //seconda fila di persone
+            for (int i = 9; i < 17; i++, x += 150) {
+                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
+            }
+            x = 50;
+            y += 200;
+            //terza fila di persone
+            for (int i = 17; i < 25; i++, x += 150) {
+                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
+            }
         }
-        
+
         //bottone aiuto
-        if(mouseOver(mx, my, 490, 300, 300, 80))
+        if (mouseOver(mx, my, 490, 300, 300, 80)) {
             JOptionPane.showMessageDialog(null, "Il pulsante 'gioca' permette di iniziare a giocare invece il pulsante 'esci' chiude la finestra");
-        
+        }
+
         //bottone esci
-        if(mouseOver(mx, my, 490, 450, 300, 80)){
+        if (mouseOver(mx, my, 490, 450, 300, 80)) {
             System.exit(0);
         }
     }
@@ -73,6 +85,7 @@ public class Menu extends MouseAdapter {
 
     }
 
+    //grafica del menù
     public void render(Graphics g) {
 
         Font fnt = new Font("arial", 1, 50);

@@ -22,6 +22,7 @@ public class HUD {
         
     }
     
+    //grafica dell'hud
     public void render(Graphics g){
         g.setColor(Color.black);
         g.fillRect(15, 15, 200, 32);

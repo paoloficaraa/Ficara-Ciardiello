@@ -79,7 +79,8 @@ public class Game extends Canvas implements Runnable {
         }
         stop();
     }
-
+    
+    //ogni tick del gioco scandito e aggiornato
     private void tick() {
         handler.tick();
         if (gameState == STATE.Game) {
@@ -89,7 +90,8 @@ public class Game extends Canvas implements Runnable {
         }
 
     }
-
+    
+    //aggiornamento grafica
     private void render() {
         BufferStrategy bs = this.getBufferStrategy();
         if (bs == null) {

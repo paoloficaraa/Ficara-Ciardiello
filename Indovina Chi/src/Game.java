@@ -22,6 +22,7 @@ public class Game extends Canvas implements Runnable {
     private Handler handler;
     private HUD hud;
     private Menu menu;
+    public Window window;
 
     public STATE gameState = STATE.Menu;
 
@@ -31,7 +32,7 @@ public class Game extends Canvas implements Runnable {
         menu = new Menu(this, handler);
         this.addMouseListener(menu);
         
-        new Window(1280, 720, "Indovina chi?", this);
+        window = new Window(1280, 720, "Indovina chi?", this);
         
         hud = new HUD();
     }

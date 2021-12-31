@@ -36,23 +36,6 @@ public class Menu extends MouseAdapter {
         //bottone gioca
         if (mouseOver(mx, my, 490, 150, 300, 80)) {
             game.gameState = STATE.Game;
-            int x = 50, y = 70;
-            //prima fila di persone
-            for (int i = 1; i < 9; i++, x += 150) {
-                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
-            }
-            x = 50;
-            y += 200;
-            //seconda fila di persone
-            for (int i = 9; i < 17; i++, x += 150) {
-                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
-            }
-            x = 50;
-            y += 200;
-            //terza fila di persone
-            for (int i = 17; i < 25; i++, x += 150) {
-                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
-            }
         }
 
         //bottone aiuto

@@ -1,8 +1,12 @@
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferStrategy;
+import javax.swing.JComboBox;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +17,6 @@ import java.awt.image.BufferStrategy;
  *
  * @author ficara_paolo
  */
-
 //classe che descrive il gioco
 public class Game extends Canvas implements Runnable {
 
@@ -31,9 +34,9 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
         menu = new Menu(this, handler);
         this.addMouseListener(menu);
-        
+
         window = new Window(1280, 720, "Indovina chi?", this);
-        
+
         hud = new HUD();
     }
 
@@ -80,18 +83,18 @@ public class Game extends Canvas implements Runnable {
         }
         stop();
     }
-    
+
     //ogni tick del gioco scandito e aggiornato
     private void tick() {
         handler.tick();
         if (gameState == STATE.Game) {
             hud.tick();
-        } else if (gameState == STATE.Menu){
+        } else if (gameState == STATE.Menu) {
             menu.tick();
         }
 
     }
-    
+
     //aggiornamento grafica
     private void render() {
         BufferStrategy bs = this.getBufferStrategy();
@@ -109,7 +112,28 @@ public class Game extends Canvas implements Runnable {
 
         if (gameState == STATE.Game) {
             hud.render(g);
-        } else if (gameState == STATE.Menu){
+
+            window.setVisibilyOfCombo(true);
+            
+            //costruzione immagini
+            int x = 50, y = 70;
+            //prima fila di persone
+            for (int i = 1; i < 9; i++, x += 150) {
+                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
+            }
+            x = 50;
+            y += 200;
+            //seconda fila di persone
+            for (int i = 9; i < 17; i++, x += 150) {
+                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
+            }
+            x = 50;
+            y += 200;
+            //terza fila di persone
+            for (int i = 17; i < 25; i++, x += 150) {
+                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
+            }
+        } else if (gameState == STATE.Menu) {
             menu.render(g);
         }
 

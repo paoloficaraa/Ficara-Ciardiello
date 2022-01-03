@@ -1,7 +1,6 @@
-
 import java.awt.Canvas;
 import java.awt.Dimension;
-import java.awt.List;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -30,9 +29,16 @@ public class Window extends Canvas {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
-
-        String[] domande = {"Bird", "Cat", "Dog", "Rabbit", "Pig"};
-        cmb = new JComboBox<String>(domande);
+        
+        MyFile file = new MyFile("src\\Domande\\fileDomande.txt");
+        List<String> domande = file.leggi();
+        
+        cmb = new JComboBox<String>();
+        
+        for(int i = 0; i < domande.size(); i++){
+            cmb.addItem(domande.get(i));
+        }
+        
         cmb.setSelectedIndex(0);
         cmb.setBounds(600, 15, 200, 32);
         cmb.setVisible(false);

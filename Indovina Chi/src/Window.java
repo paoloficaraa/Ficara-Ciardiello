@@ -19,6 +19,7 @@ import javax.swing.JFrame;
 public class Window extends Canvas {
 
     private JFrame frame;
+    private JComboBox cmb;
 
     public Window(int width, int height, String title, Game game) {
         frame = new JFrame(title);
@@ -31,7 +32,7 @@ public class Window extends Canvas {
         frame.setLocationRelativeTo(null);
 
         String[] domande = {"Bird", "Cat", "Dog", "Rabbit", "Pig"};
-        JComboBox<String> cmb = new JComboBox<String>(domande);
+        cmb = new JComboBox<String>(domande);
         cmb.setSelectedIndex(0);
         cmb.setBounds(600, 15, 200, 32);
         cmb.setVisible(false);
@@ -41,8 +42,12 @@ public class Window extends Canvas {
         frame.setVisible(true);
         game.start();
     }
-    
-    public void setVisibilyOfCombo(boolean visibility){
-        frame.getComponentAt(600, 15).setVisible(visibility);
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public JComboBox getCmb() {
+        return cmb;
     }
 }

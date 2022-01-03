@@ -113,7 +113,7 @@ public class Game extends Canvas implements Runnable {
         if (gameState == STATE.Game) {
             hud.render(g);
 
-            window.setVisibilyOfCombo(true);
+            window.getCmb().setVisible(true);
             
             //costruzione immagini
             int x = 50, y = 70;

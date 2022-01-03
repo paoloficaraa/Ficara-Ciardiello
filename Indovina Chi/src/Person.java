@@ -24,11 +24,15 @@ import javax.imageio.ImageIO;
 //classe che descrive ogni bottone della persona
 public class Person {
     
+    int x,y;
+    Image img;
+    Boolean occhiali, capelli, barba, baffi, nasoGrande, guanceRosse, cappello;
+    String coloreCapelli, coloreOcchi;
     
-    
-
     public Person(int x, int y, Image img) {
-        
+        this.x = x;
+        this.y = y;
+        this.img = img;
     }
 
     public void tick() {
@@ -41,4 +45,40 @@ public class Person {
         g2d.drawImage(img, x, y, null);
     }
 
+    public Boolean getOcchiali() {
+        return occhiali;
+    }
+
+    public Boolean getCapelli() {
+        return capelli;
+    }
+
+    public Boolean getBarba() {
+        return barba;
+    }
+
+    public Boolean getBaffi() {
+        return baffi;
+    }
+
+    public Boolean getNasoGrande() {
+        return nasoGrande;
+    }
+
+    public Boolean getGuanceRosse() {
+        return guanceRosse;
+    }
+
+    public Boolean getCappello() {
+        return cappello;
+    }
+
+    public String getColoreCapelli() {
+        return coloreCapelli;
+    }
+
+    public String getColoreOcchi() {
+        return coloreOcchi;
+    }
+    
 }

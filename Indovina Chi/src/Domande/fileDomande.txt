@@ -10,3 +10,6 @@ Ha i capelli castani?
 Ha i capelli neri?
 Ha i capelli rossi?
 Ha i capelli bianchi?
+Ha gli occhi azzurri?
+Ha gli occhi marroni?
+Ha gli occhi verdi?

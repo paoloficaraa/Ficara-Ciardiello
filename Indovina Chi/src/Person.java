@@ -34,11 +34,7 @@ public class Person {
         this.y = y;
         this.img = img;
     }
-
-    public void tick() {
-
-    }
-
+    
     //grafica degli oggetti
     public void render(Graphics g) {
         Graphics2D g2d = (Graphics2D)g;

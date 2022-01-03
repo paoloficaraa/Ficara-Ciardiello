@@ -16,7 +16,7 @@ import java.awt.Graphics;
 //classe che identifica l'hud del gioco
 public class HUD {
     
-    public int score = 0;
+    private int score = 0;
     
     public void tick(){
         
@@ -28,6 +28,10 @@ public class HUD {
         g.fillRect(15, 15, 200, 32);
         g.setColor(Color.white);
         g.drawString("Punteggio: " + score, 80, 35);
+    }
+    
+    public void increaseScore(){
+        score++;
     }
     
 }

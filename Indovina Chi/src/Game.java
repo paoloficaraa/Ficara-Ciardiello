@@ -119,19 +119,19 @@ public class Game extends Canvas implements Runnable {
             int x = 50, y = 70;
             //prima fila di persone
             for (int i = 1; i < 9; i++, x += 150) {
-                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
+                handler.addPerson(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
             }
             x = 50;
             y += 200;
             //seconda fila di persone
             for (int i = 9; i < 17; i++, x += 150) {
-                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
+                handler.addPerson(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
             }
             x = 50;
             y += 200;
             //terza fila di persone
             for (int i = 17; i < 25; i++, x += 150) {
-                handler.addObject(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
+                handler.addPerson(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
             }
         } else if (gameState == STATE.Menu) {
             menu.render(g);

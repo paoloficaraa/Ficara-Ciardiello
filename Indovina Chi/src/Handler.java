@@ -14,27 +14,27 @@ import java.util.LinkedList;
 //Classe gestore che gestisce ogni oggetto del gioco
 public class Handler {
 
-    LinkedList<GameObject> listPerson = new LinkedList<GameObject>();
+    LinkedList<Person> listPerson = new LinkedList<Person>();
     
     public void tick() {
-        for (GameObject object : listPerson) {
-            GameObject temp = object;
+        for (Person object : listPerson) {
+            Person temp = object;
             temp.tick();
         }
     }
 
     public void render(Graphics g) {
-        for (GameObject object : listPerson) {
-            GameObject temp = object;
+        for (Person object : listPerson) {
+            Person temp = object;
             temp.render(g);
         }
     }
 
-    public void addObject(GameObject object) {
+    public void addPerson(Person object) {
         listPerson.add(object);
     }
 
-    public void removeObject(GameObject object) {
+    public void removePerson(Person object) {
         listPerson.remove(object);
     }
 

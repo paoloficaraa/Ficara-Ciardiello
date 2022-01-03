@@ -22,19 +22,20 @@ import javax.imageio.ImageIO;
  * @author ficara_paolo
  */
 //classe che descrive ogni bottone della persona
-public class Person extends GameObject {
+public class Person {
+    
+    
+    
 
     public Person(int x, int y, Image img) {
-        super(x, y, img);
+        
     }
 
-    @Override
     public void tick() {
 
     }
 
     //grafica degli oggetti
-    @Override
     public void render(Graphics g) {
         Graphics2D g2d = (Graphics2D)g;
         g2d.drawImage(img, x, y, null);

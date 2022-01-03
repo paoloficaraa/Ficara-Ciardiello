@@ -19,7 +19,6 @@ public class Handler {
     public void tick() {
         for (Person object : listPerson) {
             Person temp = object;
-            temp.tick();
         }
     }
 

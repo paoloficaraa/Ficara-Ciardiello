@@ -1,5 +1,8 @@
+
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -19,6 +22,7 @@ public class Window extends Canvas {
 
     private JFrame frame;
     private JComboBox cmb;
+    private JButton btn;
 
     public Window(int width, int height, String title, Game game) {
         frame = new JFrame(title);
@@ -29,20 +33,31 @@ public class Window extends Canvas {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
-        
+
         MyFile file = new MyFile("src\\Domande\\fileDomande.txt");
         List<String> domande = file.leggi();
-        
+
         cmb = new JComboBox<String>();
-        
-        for(int i = 0; i < domande.size(); i++){
+
+        for (int i = 0; i < domande.size(); i++) {
             cmb.addItem(domande.get(i));
         }
-        
+
         cmb.setSelectedIndex(0);
         cmb.setBounds(600, 15, 200, 32);
         cmb.setVisible(false);
         frame.add(cmb);
+
+        btn = new JButton("INVIA");
+        btn.setBounds(900, 15, 100, 32);
+        btn.setVisible(false);
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+        frame.add(btn);
 
         frame.add(game);
         frame.setVisible(true);
@@ -55,5 +70,9 @@ public class Window extends Canvas {
 
     public JComboBox getCmb() {
         return cmb;
+    }
+
+    public JButton getBtn() {
+        return btn;
     }
 }

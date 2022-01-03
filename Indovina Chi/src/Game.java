@@ -2,11 +2,15 @@
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
 import java.awt.image.BufferStrategy;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -114,7 +118,9 @@ public class Game extends Canvas implements Runnable {
             hud.render(g);
 
             window.getCmb().setVisible(true);
-            
+
+            window.getBtn().setVisible(true);
+
             //costruzione immagini
             int x = 50, y = 70;
             //prima fila di persone

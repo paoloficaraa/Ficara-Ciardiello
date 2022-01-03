@@ -1,15 +1,15 @@
-Ha gli occhiali?
-Ha la barba?
-Ha i capelli?
-Ha i baffi? (senza barba)
-Ha il naso grande?
-Ha le guance rosse?
-Ha il cappello?
-Ha i capelli biondi?
-Ha i capelli castani?
-Ha i capelli neri?
-Ha i capelli rossi?
-Ha i capelli bianchi?
-Ha gli occhi azzurri?
-Ha gli occhi marroni?
-Ha gli occhi verdi?
+1;Ha gli occhiali?
+2;Ha la barba?
+3;Ha il cappello?
+4;Ha i baffi? (senza barba)
+5;Ha il naso grande?
+6;Ha le guance rosse?
+7;Ha i capelli?
+8;Ha i capelli biondi?
+9;Ha i capelli castani?
+10;Ha i capelli neri?
+11;Ha i capelli rossi?
+12;Ha i capelli bianchi?
+13;Ha gli occhi azzurri?
+14;Ha gli occhi marroni?
+15;Ha gli occhi verdi?

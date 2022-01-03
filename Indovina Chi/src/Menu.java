@@ -40,7 +40,9 @@ public class Menu extends MouseAdapter {
 
         //bottone aiuto
         if (mouseOver(mx, my, 490, 300, 300, 80)) {
-            JOptionPane.showMessageDialog(null, "Il pulsante 'gioca' permette di iniziare a giocare invece il pulsante 'esci' chiude la finestra");
+            JOptionPane.showMessageDialog(null, "Il pulsante 'gioca' permette di iniziare a giocare invece il pulsante 'esci' chiude la finestra"
+                    + "\n Regole:" + "\r\n" + "All'inizio del gioco ti verrà assegnato un personaggio che il tuo avversario dovrà indovinare, scegli tra le domande da porgli (in alto)"
+                    + " e cerca di indovinare anche tu! Vince chi indovina prima il personaggio dell'altro.");
         }
 
         //bottone esci

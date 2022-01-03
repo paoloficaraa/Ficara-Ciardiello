@@ -58,7 +58,6 @@ public class Window extends Canvas {
             }
         });
         frame.add(btn);
-
         frame.add(game);
         frame.setVisible(true);
         game.start();

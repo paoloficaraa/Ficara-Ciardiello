@@ -24,10 +24,10 @@ import javax.imageio.ImageIO;
 //classe che descrive ogni bottone della persona
 public class Person {
     
-    int x,y;
-    Image img;
-    Boolean occhiali, capelli, barba, baffi, nasoGrande, guanceRosse, cappello;
-    String coloreCapelli, coloreOcchi;
+    private int x,y;
+    private Image img;
+    private Boolean occhiali, capelli, barba, baffi, nasoGrande, guanceRosse, cappello;
+    private String coloreCapelli, coloreOcchi;
     
     public Person(int x, int y, Image img) {
         this.x = x;
@@ -75,6 +75,10 @@ public class Person {
 
     public String getColoreOcchi() {
         return coloreOcchi;
+    }
+    
+    public void setImg(Image img) {
+        this.img = img;
     }
     
 }

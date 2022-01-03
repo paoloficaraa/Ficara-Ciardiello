@@ -29,6 +29,7 @@ public class Game extends Canvas implements Runnable {
     private Handler handler;
     private HUD hud;
     private Menu menu;
+    private Person personaScelta;
     public Window window;
 
     public STATE gameState = STATE.Menu;
@@ -151,4 +152,11 @@ public class Game extends Canvas implements Runnable {
         new Game();
     }
 
+    public Handler getHandler() {
+        return handler;
+    }
+    
+    public Person getPersonaScelta() {
+        return personaScelta;
+    }
 }

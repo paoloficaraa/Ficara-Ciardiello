@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.image.BufferStrategy;
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
@@ -121,25 +122,17 @@ public class Game extends Canvas implements Runnable {
             window.getCmb().setVisible(true);
 
             window.getBtn().setVisible(true);
+            
+            MyFile file = new MyFile("src\\Persone\\filePersone.txt");
+            List<String> persone = file.leggi();
+            for(String s : persone){
+                String[] temp = s.split(";");
+                handler.addPerson(new Person(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Toolkit.getDefaultToolkit().getImage(temp[2]), 
+                        Boolean.parseBoolean(temp[3]), Boolean.parseBoolean(temp[4]), Boolean.parseBoolean(temp[5]), Boolean.parseBoolean(temp[6]), 
+                        Boolean.parseBoolean(temp[7]), Boolean.parseBoolean(temp[8]), Boolean.parseBoolean(temp[9]), temp[10], temp[11], temp[12]));
+            }
 
-            //costruzione immagini
-            int x = 50, y = 70;
-            //prima fila di persone
-            for (int i = 1; i < 9; i++, x += 150) {
-                handler.addPerson(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
-            }
-            x = 50;
-            y += 200;
-            //seconda fila di persone
-            for (int i = 9; i < 17; i++, x += 150) {
-                handler.addPerson(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
-            }
-            x = 50;
-            y += 200;
-            //terza fila di persone
-            for (int i = 17; i < 25; i++, x += 150) {
-                handler.addPerson(new Person(x, y, Toolkit.getDefaultToolkit().getImage("src\\images\\img" + i + ".jpg")));
-            }
+            
         } else if (gameState == STATE.Menu) {
             menu.render(g);
         }

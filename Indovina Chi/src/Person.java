@@ -27,9 +27,10 @@ public class Person {
     private int x, y;
     private Image img;
     private Boolean occhiali, capelli, barba, baffi, nasoGrande, guanceRosse, cappello;
-    private String coloreCapelli, coloreOcchi;
+    private String coloreCapelli, coloreOcchi, nome;
 
-    public Person(int x, int y, Image img, Boolean occhiali, Boolean capelli, Boolean barba, Boolean baffi, Boolean nasoGrande, Boolean guanceRosse, Boolean cappello, String coloreCapelli, String coloreOcchi) {
+    public Person(int x, int y, Image img, Boolean occhiali, Boolean capelli, Boolean barba, Boolean baffi, Boolean nasoGrande, Boolean guanceRosse, Boolean cappello, 
+            String coloreCapelli, String coloreOcchi, String nome) {
         this.x = x;
         this.y = y;
         this.img = img;
@@ -42,6 +43,7 @@ public class Person {
         this.cappello = cappello;
         this.coloreCapelli = coloreCapelli;
         this.coloreOcchi = coloreOcchi;
+        this.nome = nome;
     }
 
     //grafica degli oggetti
@@ -90,4 +92,7 @@ public class Person {
         this.img = img;
     }
 
+    public String getNome() {
+        return nome;
+    }
 }

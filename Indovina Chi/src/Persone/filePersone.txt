@@ -20,5 +20,5 @@
 500;470;src\\images\\img20.jpg;false;false;true;true;false;false;false; ;marrone;Richard
 650;470;src\\images\\img21.jpg;false;true;false;false;true;true;false;marrone;azzurro;Robert
 800;470;src\\images\\img22.jpg;true;false;false;false;false;false;false; ;marrone;Sam
-950;470;src\\images\\img23.jpg;false;true;false,false;false;true;false;bianco;verde;Susan
+950;470;src\\images\\img23.jpg;false;true;false;false;false;true;false;bianco;verde;Susan
 1100;470;src\\images\\img24.jpg;true;false;false;false;false;false;false; ;azzurro;Tom

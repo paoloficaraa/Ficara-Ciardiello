@@ -122,17 +122,20 @@ public class Game extends Canvas implements Runnable {
             window.getCmb().setVisible(true);
 
             window.getBtn().setVisible(true);
-            
+
             MyFile file = new MyFile("src\\Persone\\filePersone.txt");
             List<String> persone = file.leggi();
-            for(String s : persone){
+            for (String s : persone) {
                 String[] temp = s.split(";");
-                handler.addPerson(new Person(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Toolkit.getDefaultToolkit().getImage(temp[2]), 
-                        Boolean.parseBoolean(temp[3]), Boolean.parseBoolean(temp[4]), Boolean.parseBoolean(temp[5]), Boolean.parseBoolean(temp[6]), 
-                        Boolean.parseBoolean(temp[7]), Boolean.parseBoolean(temp[8]), Boolean.parseBoolean(temp[9]), temp[10], temp[11], temp[12]));
+                //try {
+                    handler.addPerson(new Person(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Toolkit.getDefaultToolkit().getImage(temp[2]),
+                            Boolean.parseBoolean(temp[3]), Boolean.parseBoolean(temp[4]), Boolean.parseBoolean(temp[5]), Boolean.parseBoolean(temp[6]),
+                            Boolean.parseBoolean(temp[7]), Boolean.parseBoolean(temp[8]), Boolean.parseBoolean(temp[9]), temp[10], temp[11], temp[12]));
+                //} catch (ArrayIndexOutOfBoundsException e) {
+                //    System.out.println(s.toString());
+                //}
             }
 
-            
         } else if (gameState == STATE.Menu) {
             menu.render(g);
         }
@@ -148,7 +151,7 @@ public class Game extends Canvas implements Runnable {
     public Handler getHandler() {
         return handler;
     }
-    
+
     public Person getPersonaScelta() {
         return personaScelta;
     }

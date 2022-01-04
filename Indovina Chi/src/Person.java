@@ -23,21 +23,30 @@ import javax.imageio.ImageIO;
  */
 //classe che descrive ogni bottone della persona
 public class Person {
-    
-    private int x,y;
+
+    private int x, y;
     private Image img;
     private Boolean occhiali, capelli, barba, baffi, nasoGrande, guanceRosse, cappello;
     private String coloreCapelli, coloreOcchi;
-    
-    public Person(int x, int y, Image img) {
+
+    public Person(int x, int y, Image img, Boolean occhiali, Boolean capelli, Boolean barba, Boolean baffi, Boolean nasoGrande, Boolean guanceRosse, Boolean cappello, String coloreCapelli, String coloreOcchi) {
         this.x = x;
         this.y = y;
         this.img = img;
+        this.occhiali = occhiali;
+        this.capelli = capelli;
+        this.barba = barba;
+        this.baffi = baffi;
+        this.nasoGrande = nasoGrande;
+        this.guanceRosse = guanceRosse;
+        this.cappello = cappello;
+        this.coloreCapelli = coloreCapelli;
+        this.coloreOcchi = coloreOcchi;
     }
-    
+
     //grafica degli oggetti
     public void render(Graphics g) {
-        Graphics2D g2d = (Graphics2D)g;
+        Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(img, x, y, null);
     }
 
@@ -76,9 +85,9 @@ public class Person {
     public String getColoreOcchi() {
         return coloreOcchi;
     }
-    
+
     public void setImg(Image img) {
         this.img = img;
     }
-    
+
 }

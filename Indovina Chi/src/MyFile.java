@@ -16,6 +16,8 @@ import java.util.ArrayList;
  *
  * @author HP
  */
+
+//classe per la lettura e scrittura di un file di testo
 public class MyFile {
     private String filename;
 

@@ -37,17 +37,17 @@ public class Window extends Canvas {
         MyFile file = new MyFile("src\\Domande\\fileDomande.txt");
         List<String> domande = file.leggi();
 
+        //costruzione comboBox
         cmb = new JComboBox<String>();
-
         for (int i = 0; i < domande.size(); i++) {
             cmb.addItem(domande.get(i));
         }
-
         cmb.setSelectedIndex(0);
         cmb.setBounds(600, 15, 200, 32);
         cmb.setVisible(false);
         frame.add(cmb);
 
+        //crazione bottone
         btn = new JButton("INVIA");
         btn.setBounds(900, 15, 100, 32);
         btn.setVisible(false);
@@ -58,6 +58,7 @@ public class Window extends Canvas {
             }
         });
         frame.add(btn);
+        
         frame.add(game);
         frame.setVisible(true);
         game.start();

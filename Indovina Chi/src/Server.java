@@ -15,6 +15,7 @@ import java.net.Socket;
  *
  * @author HP
  */
+//Classe che identifica la parte server del peer
 public class Server extends Thread {
 
     private ServerSocket socket;

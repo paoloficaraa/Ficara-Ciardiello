@@ -14,7 +14,7 @@ import java.util.LinkedList;
 //Classe gestore che gestisce ogni oggetto del gioco
 public class Handler {
 
-    private LinkedList<Person> listPeople = new LinkedList<Person>();
+    private LinkedList<Person> listPeople = new LinkedList<Person>(); //lista delle persone
     
     public void tick() {
         for (Person object : listPeople) {

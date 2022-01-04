@@ -30,10 +30,10 @@ public class Game extends Canvas implements Runnable {
     private Handler handler;
     private HUD hud;
     private Menu menu;
-    private Person personaScelta;
+    private Person personaScelta; // persona da scegliere a inizio gioco
     public Window window;
 
-    public STATE gameState = STATE.Menu;
+    public STATE gameState = STATE.Menu; //enumerazione che indentifica lo stato del gioco
 
     //costruttore del gioco
     public Game() {
@@ -77,9 +77,11 @@ public class Game extends Canvas implements Runnable {
                 tick();
                 delta--;
             }
+            //finchè il gioco sta andando, mostra la grafica
             if (running) {
                 render();
             }
+            //calcolo frame
             frames++;
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
@@ -118,12 +120,15 @@ public class Game extends Canvas implements Runnable {
 
         if (gameState == STATE.Game) {
             hud.render(g);
-
+            
+            //combo visibile per la scelta della domanda
             window.getCmb().setVisible(true);
 
+            //bottone invia visibile
             window.getBtn().setVisible(true);
 
-            MyFile file = new MyFile("src\\Persone\\filePersone.txt");
+            //creazione e associazione delle persone sia in grafica che nella lista
+            MyFile file = new MyFile("src\\Persone\\filePersone.txt"); //persone già costruite dentro questo file di testo
             List<String> persone = file.leggi();
             for (String s : persone) {
                 String[] temp = s.split(";");
@@ -137,7 +142,7 @@ public class Game extends Canvas implements Runnable {
             }
 
         } else if (gameState == STATE.Menu) {
-            menu.render(g);
+            menu.render(g); //grafica menù
         }
 
         g.dispose();

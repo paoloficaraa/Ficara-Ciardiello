@@ -38,7 +38,7 @@ public class Server extends Thread {
                 int index = Integer.parseInt(v[0]);
                 String domanda = v[1];
 
-                if (index >= 8 && index <= 12) {
+                if (index >= 8 && index <= 12) {    //se la domanda che ci viene fatta riguarda il colore dei capelli
                     String colore = domanda.substring(12, domanda.length() - 2);
                         if (colore != game.getPersonaScelta().getColoreCapelli()) {
                             out.println("N");
@@ -46,7 +46,7 @@ public class Server extends Thread {
                             out.println("Y");
                         }
                         
-                } else if (index >= 13 && index <= 15) {
+                } else if (index >= 13 && index <= 15) {    //se la domanda che ci viene fatta riguarda il colore degli occhi
                     String colore = domanda.substring(12, domanda.length() - 2);
                         if (colore != game.getPersonaScelta().getColoreOcchi()) {
                             out.println("N");

@@ -48,14 +48,54 @@ public class Server extends Thread {
                         
                 } else if (index >= 13 && index <= 15) {
                     String colore = domanda.substring(12, domanda.length() - 2);
-                        if (colore != game.getPersonaScelta().getColoreCapelli()) {
+                        if (colore != game.getPersonaScelta().getColoreOcchi()) {
                             out.println("N");
                         } else {
                             out.println("Y");
                         }
                         
                 } else if(index == 1){
-                    
+                    if(game.getPersonaScelta().getOcchiali()){
+                        out.println("Y");
+                    } else {
+                        out.println("N");
+                    }
+                } else if(index == 2){
+                    if(game.getPersonaScelta().getBarba()){
+                         out.println("Y");
+                    } else {
+                        out.println("N");
+                    }
+                } else if(index == 3){
+                    if(game.getPersonaScelta().getCappello()){
+                         out.println("Y");
+                    } else {
+                        out.println("N");
+                    }
+                } else if(index == 4){
+                    if(game.getPersonaScelta().getBaffi()){
+                         out.println("Y");
+                    } else {
+                        out.println("N");
+                    }
+                } else if(index == 5){
+                    if(game.getPersonaScelta().getNasoGrande()){
+                         out.println("Y");
+                    } else {
+                        out.println("N");
+                    }
+                } else if(index == 6){
+                    if(game.getPersonaScelta().getGuanceRosse()){
+                         out.println("Y");
+                    } else {
+                        out.println("N");
+                    }
+                } else if(index == 7){
+                    if(game.getPersonaScelta().getCapelli()){
+                         out.println("Y");
+                    } else {
+                        out.println("N");
+                    }
                 }
                 out.println(inputLine.toUpperCase());
             }

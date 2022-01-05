@@ -42,6 +42,7 @@ public class Game extends Canvas implements Runnable {
         finestraScelta = new JScelta(this, handler);
         menu = new Menu(this, handler);
         this.addMouseListener(menu);
+        this.addMouseListener(finestraScelta);
 
         window = new Window(1280, 720, "Indovina chi?", this);
 

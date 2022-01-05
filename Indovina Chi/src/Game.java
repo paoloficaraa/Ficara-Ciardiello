@@ -31,6 +31,7 @@ public class Game extends Canvas implements Runnable {
     private HUD hud;
     private Menu menu;
     private Person personaScelta; // persona da scegliere a inizio gioco
+    private JScelta finestraScelta;
     public Window window;
 
     public STATE gameState = STATE.Menu; //enumerazione che indentifica lo stato del gioco
@@ -38,6 +39,7 @@ public class Game extends Canvas implements Runnable {
     //costruttore del gioco
     public Game() {
         handler = new Handler();
+        finestraScelta = new JScelta(this, handler);
         menu = new Menu(this, handler);
         this.addMouseListener(menu);
 
@@ -132,17 +134,15 @@ public class Game extends Canvas implements Runnable {
             List<String> persone = file.leggi();
             for (String s : persone) {
                 String[] temp = s.split(";");
-                //try {
                     handler.addPerson(new Person(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Toolkit.getDefaultToolkit().getImage(temp[2]),
                             Boolean.parseBoolean(temp[3]), Boolean.parseBoolean(temp[4]), Boolean.parseBoolean(temp[5]), Boolean.parseBoolean(temp[6]),
                             Boolean.parseBoolean(temp[7]), Boolean.parseBoolean(temp[8]), Boolean.parseBoolean(temp[9]), temp[10], temp[11], temp[12]));
-                //} catch (ArrayIndexOutOfBoundsException e) {
-                //    System.out.println(s.toString());
-                //}
             }
 
         } else if (gameState == STATE.Menu) {
             menu.render(g); //grafica menù
+        } else if (gameState == STATE.Scelta){
+            finestraScelta.render(g);
         }
 
         g.dispose();

@@ -16,12 +16,6 @@ import java.util.LinkedList;
 public class Handler {
 
     private LinkedList<Person> listPeople = new LinkedList<Person>(); //lista delle persone
-    
-    public void tick() {
-        for (Person object : listPeople) {
-            Person temp = object;
-        }
-    }
 
     public void render(Graphics g) {
         for (Person object : listPeople) {

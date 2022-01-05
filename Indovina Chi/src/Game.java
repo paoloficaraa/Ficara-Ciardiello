@@ -64,11 +64,12 @@ public class Game extends Canvas implements Runnable {
             thread.join();
             running = false;
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
         }
     }
 
     //metodo che identifica il framerate del gioco e associa ad ogni frame una determinata immagine
+    @Override
     public void run() {
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
@@ -80,10 +81,6 @@ public class Game extends Canvas implements Runnable {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
-            while (delta >= 1) {
-                tick();
-                delta--;
-            }
             //finchè il gioco sta andando, mostra la grafica
             if (running) {
                 render();
@@ -97,17 +94,6 @@ public class Game extends Canvas implements Runnable {
             }
         }
         stop();
-    }
-
-    //ogni tick del gioco scandito e aggiornato
-    private void tick() {
-        handler.tick();
-        if (gameState == STATE.Game) {
-            hud.tick();
-        } else if (gameState == STATE.Menu) {
-            menu.tick();
-        }
-
     }
 
     //aggiornamento grafica

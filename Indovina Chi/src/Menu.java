@@ -63,10 +63,6 @@ public class Menu extends MouseAdapter {
         return false;
     }
 
-    public void tick() {
-
-    }
-
     //grafica del menù
     public void render(Graphics g) {
 

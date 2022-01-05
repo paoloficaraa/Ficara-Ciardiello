@@ -51,6 +51,10 @@ public class Person {
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(img, x, y, null);
     }
+    
+    
+//----------------------GET-------------------------------    
+    
 
     public Boolean getOcchiali() {
         return occhiali;
@@ -87,12 +91,21 @@ public class Person {
     public String getColoreOcchi() {
         return coloreOcchi;
     }
-
+    public String getNome() {
+        return nome;
+    }
+    
+//----------------------SET--------------------------------    
+    
     public void setImg(Image img) {
         this.img = img;
     }
 
-    public String getNome() {
-        return nome;
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }

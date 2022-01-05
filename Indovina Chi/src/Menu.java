@@ -36,8 +36,7 @@ public class Menu extends MouseAdapter {
         if (game.gameState == STATE.Menu) {
             //bottone gioca
             if (mouseOver(mx, my, 490, 150, 300, 80)) {
-                game.gameState = STATE.Scelta;
-                System.out.println("bella");
+                game.gameState = STATE.WindowChoice;
             }
 
             //bottone aiuto

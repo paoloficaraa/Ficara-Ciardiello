@@ -27,18 +27,22 @@ public class JScelta extends MouseAdapter {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        int mx = e.getX();
-        int my = e.getY();
-        int x = 50;
-        int y = 70;
+        if (game.gameState == STATE.WindowChoice) {
+            int mx = e.getX();
+            int my = e.getY();
+            int x = 50;
+            int y = 70;
 
-        for (int i = 1; i < handler.getListPeople().size(); i++, x += 150) {
-            if (i == 9 || i == 17) {
-                x = 50;
-                y += 200;
-            }
-            if (mouseOver(mx, my, x, y, 100, 180)) {
-                System.out.println("bella");
+            for (int i = 1; i < handler.getListPeople().size(); i++, x += 150) {
+                if (i == 9 || i == 17) {
+                    x = 50;
+                    y += 200;
+                }
+                if (mouseOver(mx, my, x, y, 100, 180)) {
+                    game.setPersonaScelta(handler.getListPeople().get(i - 1));
+                    //System.out.println(game.getPersonaScelta().getNome());
+                    game.gameState = STATE.WindowChosen;
+                }
             }
         }
     }

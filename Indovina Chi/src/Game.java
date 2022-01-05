@@ -32,6 +32,7 @@ public class Game extends Canvas implements Runnable {
     private Menu menu;
     private Person personaScelta; // persona da scegliere a inizio gioco
     private JScelta finestraScelta;
+    private PersonChosen finestraPersona;
     public Window window;
 
     public STATE gameState = STATE.Menu; //enumerazione che indentifica lo stato del gioco
@@ -40,9 +41,11 @@ public class Game extends Canvas implements Runnable {
     public Game() {
         handler = new Handler();
         finestraScelta = new JScelta(this, handler);
+        finestraPersona = new PersonChosen(this);
         menu = new Menu(this, handler);
         this.addMouseListener(menu);
         this.addMouseListener(finestraScelta);
+        personaScelta = null;
 
         window = new Window(1280, 720, "Indovina chi?", this);
 
@@ -123,7 +126,7 @@ public class Game extends Canvas implements Runnable {
 
         if (gameState == STATE.Game) {
             hud.render(g);
-            
+
             //combo visibile per la scelta della domanda
             window.getCmb().setVisible(true);
 
@@ -135,15 +138,17 @@ public class Game extends Canvas implements Runnable {
             List<String> persone = file.leggi();
             for (String s : persone) {
                 String[] temp = s.split(";");
-                    handler.addPerson(new Person(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Toolkit.getDefaultToolkit().getImage(temp[2]),
-                            Boolean.parseBoolean(temp[3]), Boolean.parseBoolean(temp[4]), Boolean.parseBoolean(temp[5]), Boolean.parseBoolean(temp[6]),
-                            Boolean.parseBoolean(temp[7]), Boolean.parseBoolean(temp[8]), Boolean.parseBoolean(temp[9]), temp[10], temp[11], temp[12]));
+                handler.addPerson(new Person(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Toolkit.getDefaultToolkit().getImage(temp[2]),
+                        Boolean.parseBoolean(temp[3]), Boolean.parseBoolean(temp[4]), Boolean.parseBoolean(temp[5]), Boolean.parseBoolean(temp[6]),
+                        Boolean.parseBoolean(temp[7]), Boolean.parseBoolean(temp[8]), Boolean.parseBoolean(temp[9]), temp[10], temp[11], temp[12]));
             }
 
         } else if (gameState == STATE.Menu) {
             menu.render(g); //grafica menù
-        } else if (gameState == STATE.Scelta){
-            finestraScelta.render(g);
+        } else if (gameState == STATE.WindowChoice) {
+            finestraScelta.render(g);   //grafica scelta del personaggio
+        } else if (gameState == STATE.WindowChosen) {
+            finestraPersona.render(g);  //grafica personaggio scelto
         }
 
         g.dispose();
@@ -160,5 +165,9 @@ public class Game extends Canvas implements Runnable {
 
     public Person getPersonaScelta() {
         return personaScelta;
+    }
+
+    public void setPersonaScelta(Person personaScelta) {
+        this.personaScelta = personaScelta;
     }
 }

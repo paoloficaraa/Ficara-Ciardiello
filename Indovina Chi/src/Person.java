@@ -29,7 +29,7 @@ public class Person {
     private Boolean occhiali, capelli, barba, baffi, nasoGrande, guanceRosse, cappello;
     private String coloreCapelli, coloreOcchi, nome;
 
-    public Person(int x, int y, Image img, Boolean occhiali, Boolean capelli, Boolean barba, Boolean baffi, Boolean nasoGrande, Boolean guanceRosse, Boolean cappello, 
+    public Person(int x, int y, Image img, Boolean occhiali, Boolean capelli, Boolean barba, Boolean baffi, Boolean nasoGrande, Boolean guanceRosse, Boolean cappello,
             String coloreCapelli, String coloreOcchi, String nome) {
         this.x = x;
         this.y = y;
@@ -51,11 +51,8 @@ public class Person {
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(img, x, y, null);
     }
-    
-    
-//----------------------GET-------------------------------    
-    
 
+//----------------------GET-------------------------------    
     public Boolean getOcchiali() {
         return occhiali;
     }
@@ -91,12 +88,16 @@ public class Person {
     public String getColoreOcchi() {
         return coloreOcchi;
     }
+
     public String getNome() {
         return nome;
     }
-    
+
+    public Image getImg() {
+        return img;
+    }
 //----------------------SET--------------------------------    
-    
+
     public void setImg(Image img) {
         this.img = img;
     }

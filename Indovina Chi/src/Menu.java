@@ -30,10 +30,10 @@ public class Menu extends MouseAdapter {
     //metodo che gestisce l'evento del click del mouse su un bottone del menù
     @Override
     public void mousePressed(MouseEvent e) {
-        int mx = e.getX();
-        int my = e.getY();
-
         if (game.gameState == STATE.Menu) {
+            int mx = e.getX();
+            int my = e.getY();
+
             //bottone gioca
             if (mouseOver(mx, my, 490, 150, 300, 80)) {
                 game.gameState = STATE.WindowChoice;

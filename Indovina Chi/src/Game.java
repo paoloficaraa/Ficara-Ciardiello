@@ -45,6 +45,7 @@ public class Game extends Canvas implements Runnable {
         menu = new Menu(this, handler);
         this.addMouseListener(menu);
         this.addMouseListener(finestraScelta);
+        this.addMouseListener(finestraPersona);
         personaScelta = null;
 
         window = new Window(1280, 720, "Indovina chi?", this);
@@ -125,6 +126,7 @@ public class Game extends Canvas implements Runnable {
         handler.render(g);
 
         if (gameState == STATE.Game) {
+            
             hud.render(g);
 
             //combo visibile per la scelta della domanda

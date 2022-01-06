@@ -45,6 +45,7 @@ public class Client extends Thread {
                 String[] v = inputLine.split(";");
                 int index = Integer.parseInt(v[0]);
                 String domanda = v[1];
+                
                 if (inputLine.equals("Y")) { //se quello che viene mandato è sì
                     if (index >= 8 && index <= 12) {
                         String coloreCapelli = domanda.substring(12, domanda.length() - 2);
@@ -103,6 +104,14 @@ public class Client extends Thread {
                             }
                         }
                     }
+                    
+                    
+                    
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------                    
+                    
+                    
+                    
+                    
                 } else if (inputLine.equals("N")) { //se quello che viene mandato è no
                     if (index >= 8 && index <= 12) {
                         String coloreCapelli = domanda.substring(12, domanda.length() - 2);

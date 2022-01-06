@@ -1,4 +1,6 @@
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
@@ -58,6 +60,11 @@ public class JScelta extends MouseAdapter {
     }
 
     public void render(Graphics g) {
+//        g.drawString("Scegli il tuo personaggio", 1000, 500);
+//        Font fnt = new Font("arial", 1, 400);
+//        g.setFont(fnt);
+//        g.setColor(Color.BLACK);
+        
         MyFile file = new MyFile("src\\Persone\\filePersone.txt"); //persone già costruite dentro questo file di testo
         List<String> persone = file.leggi();
         for (String s : persone) {

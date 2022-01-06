@@ -31,8 +31,8 @@ public class Game extends Canvas implements Runnable {
     private HUD hud;
     private Menu menu;
     private Person personaScelta; // persona da scegliere a inizio gioco
-    private JScelta finestraScelta;
-    private PersonChosen finestraPersona;
+    private JScelta finestraScelta; // finestra per la scelta del personaggio
+    private PersonChosen finestraPersona; //finestra scleta del personaggio (dopo averlo selezionato)
     public Window window;
 
     public STATE gameState = STATE.Menu; //enumerazione che indentifica lo stato del gioco
@@ -112,7 +112,7 @@ public class Game extends Canvas implements Runnable {
         handler.render(g);
 
         if (gameState == STATE.Game) {
-            
+
             hud.render(g);
 
             //combo visibile per la scelta della domanda

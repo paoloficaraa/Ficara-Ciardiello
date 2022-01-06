@@ -29,10 +29,12 @@ public class PersonChosen extends MouseAdapter {
             int mx = e.getX();
             int my = e.getY();
 
-            if (mouseOver(mx, my, 543, 400, 200, 40)) {
+            if (mouseOver(mx, my, 543, 400, 200, 40)) {     //se si preme il bottone continua si inizia a giocare
                 game.gameState = STATE.Game;
                 game.getPersonaScelta().setX(20000);
                 game.getPersonaScelta().setY(20000);
+            } else if (mouseOver(mx, my, 595, 486, 100, 15)) {   //se si preme il bottone cambia scelta si ritorna alla pagina di scelta del personaggio
+                game.gameState = STATE.WindowChoice;
             }
         }
     }
@@ -68,5 +70,11 @@ public class PersonChosen extends MouseAdapter {
         g.setFont(fnt2);
         g.drawRect(543, 400, 200, 40);
         g.drawString("Continua", 580, 430);
+
+        //bottone torna indietro
+        Font fnt3 = new Font("arial", 1, 15);
+        g.setFont(fnt3);
+        //g.drawRect(595, 486, 100, 15);
+        g.drawString("Cambia scelta", 597, 500);
     }
 }

@@ -60,11 +60,16 @@ public class JScelta extends MouseAdapter {
     }
 
     public void render(Graphics g) {
-//        g.drawString("Scegli il tuo personaggio", 1000, 500);
-//        Font fnt = new Font("arial", 1, 400);
-//        g.setFont(fnt);
-//        g.setColor(Color.BLACK);
-        
+        g.setColor(Color.black);
+        Font fnt = new Font("arial", 1, 40);
+        g.setFont(fnt);
+        g.drawString("SCEGLI IL PERSONAGGIO", 375, 50);
+
+        if (game.getPersonaScelta() != null) {
+            game.getPersonaScelta().setX(20000);
+            game.getPersonaScelta().setY(20000);
+        }
+
         MyFile file = new MyFile("src\\Persone\\filePersone.txt"); //persone già costruite dentro questo file di testo
         List<String> persone = file.leggi();
         for (String s : persone) {
@@ -73,5 +78,6 @@ public class JScelta extends MouseAdapter {
                     Boolean.parseBoolean(temp[3]), Boolean.parseBoolean(temp[4]), Boolean.parseBoolean(temp[5]), Boolean.parseBoolean(temp[6]),
                     Boolean.parseBoolean(temp[7]), Boolean.parseBoolean(temp[8]), Boolean.parseBoolean(temp[9]), temp[10], temp[11], temp[12]));
         }
+
     }
 }

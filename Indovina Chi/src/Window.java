@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -23,6 +25,7 @@ public class Window extends Canvas {
     private JFrame frame;
     private JComboBox cmb;
     private JButton btn;
+    private Client c;
 
     public Window(int width, int height, String title, Game game) {
         frame = new JFrame(title);
@@ -54,7 +57,12 @@ public class Window extends Canvas {
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                c.start();
+                try {
+                    c.join();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         frame.add(btn);

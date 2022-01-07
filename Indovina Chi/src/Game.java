@@ -33,6 +33,10 @@ public class Game extends Canvas implements Runnable {
     private Person personaScelta; // persona da scegliere a inizio gioco
     private JScelta finestraScelta; // finestra per la scelta del personaggio
     private PersonChosen finestraPersona; //finestra scleta del personaggio (dopo averlo selezionato)
+    private int turno;
+    private Server server;
+    private Client client;
+
     public Window window;
 
     public STATE gameState = STATE.Menu; //enumerazione che indentifica lo stato del gioco
@@ -47,6 +51,7 @@ public class Game extends Canvas implements Runnable {
         this.addMouseListener(finestraScelta);
         this.addMouseListener(finestraPersona);
         personaScelta = null;
+        turno = -1;
 
         window = new Window(1280, 720, "Indovina chi?", this);
 
@@ -130,7 +135,6 @@ public class Game extends Canvas implements Runnable {
                         Boolean.parseBoolean(temp[3]), Boolean.parseBoolean(temp[4]), Boolean.parseBoolean(temp[5]), Boolean.parseBoolean(temp[6]),
                         Boolean.parseBoolean(temp[7]), Boolean.parseBoolean(temp[8]), Boolean.parseBoolean(temp[9]), temp[10], temp[11], temp[12]));
             }
-
         } else if (gameState == STATE.Menu) {
             menu.render(g); //grafica menù
         } else if (gameState == STATE.WindowChoice) {
@@ -157,5 +161,9 @@ public class Game extends Canvas implements Runnable {
 
     public void setPersonaScelta(Person personaScelta) {
         this.personaScelta = personaScelta;
+    }
+    
+    public void setTurno(int turno) {
+        this.turno = turno;
     }
 }

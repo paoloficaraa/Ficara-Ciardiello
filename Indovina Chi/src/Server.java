@@ -47,6 +47,7 @@ public class Server extends Thread {
                 } else {
                     out.println("N");
                 }
+            }
 
 //                if (index >= 8 && index <= 12) {    //se la domanda che ci viene fatta riguarda il colore dei capelli
 //                    String colore = domanda.substring(12, domanda.length() - 2);
@@ -107,7 +108,7 @@ public class Server extends Thread {
 //                        out.println("N");
 //                    }
 //                }
-            }
+//            }
 
             in.close();
             out.close();

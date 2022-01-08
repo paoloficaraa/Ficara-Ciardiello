@@ -9,7 +9,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
@@ -25,7 +32,7 @@ import javax.swing.JOptionPane;
 //classe che descrive il gioco
 public class Game extends Canvas implements Runnable {
 
-    private boolean running = false;
+    private boolean running;
     private Thread thread;
     private Handler handler;
     private HUD hud;
@@ -36,13 +43,13 @@ public class Game extends Canvas implements Runnable {
     private int turno;
     private Server server;
     private Client client;
-
     public Window window;
 
     public STATE gameState = STATE.Menu; //enumerazione che indentifica lo stato del gioco
 
     //costruttore del gioco
     public Game() {
+        running = false;
         handler = new Handler();
         finestraScelta = new JScelta(this, handler);
         finestraPersona = new PersonChosen(this);
@@ -56,6 +63,8 @@ public class Game extends Canvas implements Runnable {
         window = new Window(1280, 720, "Indovina chi?", this);
 
         hud = new HUD();
+        server = new Server(6666, this);
+        client = new Client(this);
     }
 
     public synchronized void start() {
@@ -162,8 +171,20 @@ public class Game extends Canvas implements Runnable {
     public void setPersonaScelta(Person personaScelta) {
         this.personaScelta = personaScelta;
     }
-    
+
     public void setTurno(int turno) {
         this.turno = turno;
+    }
+
+    public Server getServer() {
+        return server;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public boolean isRunning() {
+        return running;
     }
 }

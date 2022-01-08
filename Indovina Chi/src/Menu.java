@@ -5,6 +5,10 @@ import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -37,6 +41,16 @@ public class Menu extends MouseAdapter {
             //bottone gioca
             if (mouseOver(mx, my, 490, 150, 300, 80)) {
                 game.gameState = STATE.WindowChoice;
+
+                
+                try {
+                    game.getClient().startConnection("localhost", 6666);
+                    game.getServer().start();
+                    //game.getClient().start();
+                } catch (IOException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
 
             //bottone aiuto

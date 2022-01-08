@@ -3,6 +3,7 @@ import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +26,6 @@ public class Window extends Canvas {
     private JFrame frame;
     private JComboBox cmb;
     private JButton btn;
-    private Client c;
 
     public Window(int width, int height, String title, Game game) {
         frame = new JFrame(title);
@@ -54,15 +54,12 @@ public class Window extends Canvas {
         btn = new JButton("INVIA");
         btn.setBounds(900, 15, 100, 32);
         btn.setVisible(false);
-        btn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                c.start();
-                try {
-                    c.join();
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        btn.addActionListener((ActionEvent e) -> {
+            try {
+                //System.out.println(cmb.getSelectedItem().toString());
+                game.getClient().sendMessage(cmb.getSelectedItem().toString());
+            } catch (IOException ex) {
+                Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         frame.add(btn);

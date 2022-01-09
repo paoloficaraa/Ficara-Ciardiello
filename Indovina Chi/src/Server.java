@@ -41,15 +41,16 @@ public class Server extends Thread {
             serverSocket = new ServerSocket(port);
             //System.out.println(serverSocket.getLocalPort());
             clientSocket = serverSocket.accept();
-            System.out.println("SERVER: ci sono");
+            System.out.println("SERVER: ho accettato la connessione");
             //System.out.println(clientSocket.getLocalPort());
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-
+            out.println("accept");
+            System.out.println("Server: ho mandato l'accept");
             String inputLine;
 
-            while ((inputLine = in.readLine()) != null ) {
-                System.out.println(inputLine);
+            while ((inputLine = in.readLine()) != null) {
+                out.println("received");
 
                 String v[] = inputLine.split(";");
                 String domanda = v[1];

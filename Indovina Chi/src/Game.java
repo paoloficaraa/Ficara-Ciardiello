@@ -82,30 +82,11 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
-    //metodo che identifica il framerate del gioco e associa ad ogni frame una determinata immagine
     @Override
     public void run() {
-        long lastTime = System.nanoTime();
-        double amountOfTicks = 60.0;
-        double ns = 1000000000 / amountOfTicks;
-        double delta = 0;
-        long timer = System.currentTimeMillis();
-        int frames = 0;
         while (running) {
-            long now = System.nanoTime();
-            delta += (now - lastTime) / ns;
-            lastTime = now;
             //finchè il gioco sta andando, mostra la grafica
-            if (running) {
-                render();
-            }
-            //calcolo frame
-            frames++;
-            if (System.currentTimeMillis() - timer > 1000) {
-                timer += 1000;
-                System.out.println("FPS: " + frames);
-                frames = 0;
-            }
+            render();
         }
         stop();
     }

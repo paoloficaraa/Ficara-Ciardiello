@@ -39,14 +39,16 @@ public class Server extends Thread {
     public void run() {
         try {
             serverSocket = new ServerSocket(port);
+            //System.out.println(serverSocket.getLocalPort());
             clientSocket = serverSocket.accept();
             System.out.println("SERVER: ci sono");
+            //System.out.println(clientSocket.getLocalPort());
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
             String inputLine;
 
-            while ((inputLine = in.readLine()) != null) {
+            while ((inputLine = in.readLine()) != null ) {
                 System.out.println(inputLine);
 
                 String v[] = inputLine.split(";");

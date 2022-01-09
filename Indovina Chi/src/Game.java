@@ -66,8 +66,6 @@ public class Game extends Canvas implements Runnable {
         window = new Window(1280, 720, "Indovina chi?", this);
 
         hud = new HUD();
-        server = new Server(6666, this);
-        client = new Client(this);
     }
 
     public synchronized void start() {
@@ -134,11 +132,13 @@ public class Game extends Canvas implements Runnable {
             finestraScelta.render(g);   //grafica scelta del personaggio
         } else if (gameState == STATE.WindowChosen) {
             finestraPersona.render(g);  //grafica personaggio scelto
-        } else if (gameState == STATE.windowConnection) {
+        } else if (gameState == STATE.windowConnection) { 
             finestraConnessione.render(g);  //grafica inserimento socket e connessione
-//            window.getTxtIp().setVisible(true);
-//            window.getTxtPorta().setVisible(true);
-//            window.getTxtServer().setVisible(true);
+            window.getTxtIp().setVisible(true);
+
+            window.getTxtPorta().setVisible(true);
+
+            window.getTxtServer().setVisible(true);
         }
 
         g.dispose();

@@ -58,10 +58,6 @@ public class WindowConnection extends MouseAdapter {
     }
 
     public void render(Graphics g) {
-        
-        game.window.getTxtIp().setText("sono IP");
-        game.window.getTxtPorta().setText("sono Porta");
-        game.window.getTxtServer().setText("sono Server");
 
         Font fnt = new Font("arial", 1, 50);
         Font fnt2 = new Font("arial", 0, 30);

@@ -1,5 +1,6 @@
 
 import java.awt.Canvas;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -57,8 +58,7 @@ public class Window extends Canvas {
         txtIp.setBounds(600, 195, 150, 30);
         txtIp.setVisible(false);
         frame.add(txtIp);
-        
-        //600, 300, 150, 30
+
         txtPorta = new JTextField();
         txtPorta.setBounds(600, 295, 150, 30);
         txtPorta.setVisible(false);
@@ -67,7 +67,7 @@ public class Window extends Canvas {
         txtServer = new JTextField();
         txtServer.setBounds(600, 325, 150, 30);
         txtServer.setVisible(false);
-        frame.add(txtPorta);
+        frame.add(txtServer);
 
         //crazione bottone
         btn = new JButton("INVIA");

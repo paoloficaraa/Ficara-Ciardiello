@@ -86,5 +86,6 @@ public class Menu extends MouseAdapter {
 
         g.drawRect(490, 450, 300, 80);
         g.drawString("Esci", 610, 500);
+
     }
 }

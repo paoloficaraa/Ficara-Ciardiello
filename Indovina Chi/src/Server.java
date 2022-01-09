@@ -30,6 +30,7 @@ public class Server extends Thread {
 
     public Server(int port, Game game) {
         //this.socket = socket;
+        this.port = port;
         this.game = game;
         clientSocket = null;
     }

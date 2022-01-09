@@ -41,15 +41,15 @@ public class Menu extends MouseAdapter {
             //bottone gioca
             if (mouseOver(mx, my, 490, 150, 300, 80)) {
                 game.gameState = STATE.WindowChoice;
-
-                
+                game.getServer().start();
                 try {
                     game.getClient().startConnection("localhost", 6666);
-                    game.getServer().start();
+                    
                     //game.getClient().start();
                 } catch (IOException ex) {
                     Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
 
             }
 

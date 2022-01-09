@@ -40,6 +40,7 @@ public class Game extends Canvas implements Runnable {
     private Person personaScelta; // persona da scegliere a inizio gioco
     private JScelta finestraScelta; // finestra per la scelta del personaggio
     private PersonChosen finestraPersona; //finestra scleta del personaggio (dopo averlo selezionato)
+    private WindowConnection finestraConnessione;
     private int turno;
     private Server server;
     private Client client;
@@ -53,10 +54,12 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
         finestraScelta = new JScelta(this, handler);
         finestraPersona = new PersonChosen(this);
+        finestraConnessione = new WindowConnection(this);
         menu = new Menu(this, handler);
         this.addMouseListener(menu);
         this.addMouseListener(finestraScelta);
         this.addMouseListener(finestraPersona);
+        this.addMouseListener(finestraConnessione);
         personaScelta = null;
         turno = -1;
 
@@ -131,6 +134,11 @@ public class Game extends Canvas implements Runnable {
             finestraScelta.render(g);   //grafica scelta del personaggio
         } else if (gameState == STATE.WindowChosen) {
             finestraPersona.render(g);  //grafica personaggio scelto
+        } else if (gameState == STATE.windowConnection) {
+            finestraConnessione.render(g);  //grafica inserimento socket e connessione
+//            window.getTxtIp().setVisible(true);
+//            window.getTxtPorta().setVisible(true);
+//            window.getTxtServer().setVisible(true);
         }
 
         g.dispose();

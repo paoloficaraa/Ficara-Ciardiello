@@ -11,6 +11,7 @@
 //enumerazione che identifica gli stati del gioco
 public enum STATE {
     Game,
+    windowConnection,
     WindowChoice,
     WindowChosen,
     Menu;

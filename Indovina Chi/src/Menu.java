@@ -40,14 +40,7 @@ public class Menu extends MouseAdapter {
 
             //bottone gioca
             if (mouseOver(mx, my, 490, 150, 300, 80)) {
-                game.getServer().start();
-                
-                try {
-                    game.getClient().startConnection("localhost", 6666);
-                } catch (IOException ex) {
-                    System.out.println(ex.toString());
-                }
-                game.gameState = STATE.WindowChoice;
+                game.gameState = STATE.windowConnection;
             }
 
             //bottone aiuto
@@ -93,6 +86,5 @@ public class Menu extends MouseAdapter {
 
         g.drawRect(490, 450, 300, 80);
         g.drawString("Esci", 610, 500);
-
     }
 }

@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,6 +27,7 @@ public class Window extends Canvas {
     private JFrame frame;
     private JComboBox cmb;
     private JButton btn;
+    private JTextField txtIp, txtPorta, txtServer;
 
     public Window(int width, int height, String title, Game game) {
         frame = new JFrame(title);
@@ -49,6 +51,23 @@ public class Window extends Canvas {
         cmb.setBounds(600, 15, 200, 32);
         cmb.setVisible(false);
         frame.add(cmb);
+        
+        //costruzione textBox per connesione
+        txtIp = new JTextField();
+        txtIp.setBounds(600, 195, 150, 30);
+        txtIp.setVisible(false);
+        frame.add(txtIp);
+        
+        //600, 300, 150, 30
+        txtPorta = new JTextField();
+        txtPorta.setBounds(600, 295, 150, 30);
+        txtPorta.setVisible(false);
+        frame.add(txtPorta);
+        
+        txtServer = new JTextField();
+        txtServer.setBounds(600, 325, 150, 30);
+        txtServer.setVisible(false);
+        frame.add(txtPorta);
 
         //crazione bottone
         btn = new JButton("INVIA");
@@ -67,6 +86,18 @@ public class Window extends Canvas {
         frame.add(game);
         frame.setVisible(true);
         game.start();
+    }
+
+    public JTextField getTxtServer() {
+        return txtServer;
+    }
+
+    public JTextField getTxtIp() {
+        return txtIp;
+    }
+
+    public JTextField getTxtPorta() {
+        return txtPorta;
     }
 
     public JFrame getFrame() {

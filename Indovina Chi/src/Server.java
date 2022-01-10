@@ -64,7 +64,6 @@ public class Server extends Thread {
                     } else {
                         out.println("N");
                     }
-
                 }
 
                 int dialogButton = JOptionPane.YES_NO_OPTION;

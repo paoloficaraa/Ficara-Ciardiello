@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.net.ConnectException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -123,17 +124,17 @@ public class WindowConnection extends javax.swing.JFrame {
         game.getServer().start();
         try {
             do {
-                try{
+                try {
                     game.getClient().startConnection(ip, port);
-                } catch(ConnectException e){
+                } catch (ConnectException e) {
                     try {
                         Thread.sleep(1000);
+                        jButton1ActionPerformed(evt);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(WindowConnection.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    jButton1ActionPerformed(evt);
-                } 
-                
+                }
+
             } while (game.getClient().getConfirmConnection() == "accept");
         } catch (IOException ex) {
             Logger.getLogger(WindowConnection.class.getName()).log(Level.SEVERE, null, ex);

@@ -52,6 +52,7 @@ public class Game extends Canvas implements Runnable {
     public Game() {
         running = false;
         handler = new Handler();
+        handler.addPeople();
         finestraScelta = new JScelta(this, handler);
         finestraPersona = new PersonChosen(this);
         menu = new Menu(this, handler);
@@ -103,12 +104,13 @@ public class Game extends Canvas implements Runnable {
 
         g.setColor(Color.lightGray);
         g.fillRect(0, 0, 1280, 720);
-
-        handler.render(g);
+        
 
         if (gameState == STATE.Game) {
 
             hud.render(g);
+            
+            handler.render(g);
 
             //combo visibile per la scelta della domanda
             window.getCmb().setVisible(true);
@@ -116,19 +118,11 @@ public class Game extends Canvas implements Runnable {
             //bottone invia visibile
             window.getBtn().setVisible(true);
 
-            //creazione e associazione delle persone sia in grafica che nella lista
-            MyFile file = new MyFile("src\\Persone\\filePersone.txt"); //persone già costruite dentro questo file di testo
-            List<String> persone = file.leggi();
-            for (String s : persone) {
-                String[] temp = s.split(";");
-                handler.addPerson(new Person(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Toolkit.getDefaultToolkit().getImage(temp[2]),
-                        Boolean.parseBoolean(temp[3]), Boolean.parseBoolean(temp[4]), Boolean.parseBoolean(temp[5]), Boolean.parseBoolean(temp[6]),
-                        Boolean.parseBoolean(temp[7]), Boolean.parseBoolean(temp[8]), Boolean.parseBoolean(temp[9]), temp[10], temp[11], temp[12]));
-            }
         } else if (gameState == STATE.Menu) {
             menu.render(g); //grafica menù
         } else if (gameState == STATE.WindowChoice) {
-            finestraScelta.render(g);   //grafica scelta del personaggio
+            finestraScelta.render(g);
+            handler.render(g);//grafica scelta del personaggio
         } else if (gameState == STATE.WindowChosen) {
             finestraPersona.render(g);  //grafica personaggio scelto
         } else if (gameState == STATE.windowConnection) {  //grafica inserimento socket e connessione

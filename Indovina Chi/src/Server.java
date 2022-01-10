@@ -41,12 +41,12 @@ public class Server extends Thread {
             serverSocket = new ServerSocket(port);
             //System.out.println(serverSocket.getLocalPort());
             clientSocket = serverSocket.accept();
-            System.out.println("SERVER: ho accettato la connessione");
+            System.out.println("SERVER: I've accepted the connection");
             //System.out.println(clientSocket.getLocalPort());
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             out.println("accept");
-            System.out.println("Server: ho mandato l'accept");
+            System.out.println("Server: I've sent the accept message");
             String inputLine;
 
             while ((inputLine = in.readLine()) != null) {

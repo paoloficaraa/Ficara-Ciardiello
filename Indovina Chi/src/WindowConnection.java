@@ -1,5 +1,6 @@
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,6 +26,7 @@ public class WindowConnection extends javax.swing.JFrame {
     public WindowConnection(Game game) {
         this.game = game;
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -121,8 +123,18 @@ public class WindowConnection extends javax.swing.JFrame {
         game.getServer().start();
         try {
             do {
-                game.getClient().startConnection(ip, port);
-            } while (game.getClient().getConfirm() == "accept");
+                try{
+                    game.getClient().startConnection(ip, port);
+                } catch(ConnectException e){
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(WindowConnection.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    jButton1ActionPerformed(evt);
+                } 
+                
+            } while (game.getClient().getConfirmConnection() == "accept");
         } catch (IOException ex) {
             Logger.getLogger(WindowConnection.class.getName()).log(Level.SEVERE, null, ex);
         }

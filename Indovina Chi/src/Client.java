@@ -38,7 +38,7 @@ public class Client /*extends Thread*/ {
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
     
-    public String getConfirm() throws IOException{
+    public String getConfirmConnection() throws IOException{
         String resp = in.readLine();
         System.out.println("CLIENT: ho ricevuto l'accept");
         return resp;
@@ -47,7 +47,7 @@ public class Client /*extends Thread*/ {
     public void sendMessage(String msg) throws IOException {
         do{
             out.print(msg);
-        }while(getConfirm() == "received");
+        }while(getConfirmConnection() == "received");
         System.out.println("message sent successfully dio cane");
         
         String resp = in.readLine();

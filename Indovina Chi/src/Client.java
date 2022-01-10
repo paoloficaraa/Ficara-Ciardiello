@@ -10,6 +10,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -55,7 +56,8 @@ public class Client /*extends Thread*/ {
         String[] v = msg.split(";");
         int index = Integer.parseInt(v[0].replaceAll("\\P{Print}", ""));
         String domanda = v[1];
-        if (resp.equals("Y")) { //se quello che viene mandato è sì
+        
+        if (resp.equals("Y")) { //se quello che viene ricevuto è sì
             if (index >= 8 && index <= 12) {
                 String coloreCapelli = domanda.substring(12, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
@@ -112,10 +114,16 @@ public class Client /*extends Thread*/ {
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
                     }
                 }
+            } else if (index == 118) {
+                int dialogButton = JOptionPane.OK_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(null, "Hai indovinato, hai vinto!");
+                if (dialogResult == dialogButton) {
+                    game.setRunning(false);
+                }
             }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------      
-        } else if (resp.equals("N")) { //se quello che viene mandato è no
+        } else if (resp.equals("N")) { //se quello che viene ricevuto è no
             if (index >= 8 && index <= 12) {
                 String coloreCapelli = domanda.substring(12, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
@@ -171,6 +179,12 @@ public class Client /*extends Thread*/ {
                     if (game.getHandler().getListPeople().get(i).getCapelli()) { //cerco chi ha i capelli e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
                     }
+                }
+            } else if (index == 118) {
+                int dialogButton = JOptionPane.OK_OPTION;
+                int dialogResult = JOptionPane.showConfirmDialog(null, "Hai sbagliato, hai perso!");
+                if (dialogResult == dialogButton) {
+                    game.setRunning(false);
                 }
             }
         }

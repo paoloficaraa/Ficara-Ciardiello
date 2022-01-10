@@ -53,7 +53,19 @@ public class Server extends Thread {
                 out.println("received");
 
                 String v[] = inputLine.split(";");
+                int index = Integer.parseInt(v[0].replaceAll("\\P{Print}", ""));
                 String domanda = v[1];
+
+                if (index == 118) { //se la domanda dell'avversario è una domanda vincente
+                    int dialogButton = JOptionPane.YES_NO_OPTION;
+                    int dialogResult = JOptionPane.showConfirmDialog(null, domanda, "Domanda", dialogButton);
+                    if (dialogResult == 0) {
+                        out.println("Y");
+                    } else {
+                        out.println("N");
+                    }
+
+                }
 
                 int dialogButton = JOptionPane.YES_NO_OPTION;
                 int dialogResult = JOptionPane.showConfirmDialog(null, domanda, "Domanda", dialogButton);
@@ -67,6 +79,7 @@ public class Server extends Thread {
             out.close();
             clientSocket.close();
             serverSocket.close();
+            System.exit(0);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

@@ -173,4 +173,8 @@ public class Game extends Canvas implements Runnable {
     public void constructorClient(){
         client = new Client(this);
     }
+    
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
 }

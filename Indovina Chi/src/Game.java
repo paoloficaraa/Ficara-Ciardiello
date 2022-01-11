@@ -104,12 +104,11 @@ public class Game extends Canvas implements Runnable {
 
         g.setColor(Color.lightGray);
         g.fillRect(0, 0, 1280, 720);
-        
 
         if (gameState == STATE.Game) {
 
             hud.render(g);
-            
+
             handler.render(g);
 
             //combo visibile per la scelta della domanda
@@ -117,6 +116,12 @@ public class Game extends Canvas implements Runnable {
 
             //bottone invia visibile
             window.getBtn().setVisible(true);
+
+            //scritta personaggio scelto
+            Font fnt = new Font("arial", 1, 20);
+            g.setFont(fnt);
+            g.setColor(Color.BLACK);
+            g.drawString("Il tuo personaggio: " + getPersonaScelta().getNome(), 230, 35);
 
         } else if (gameState == STATE.Menu) {
             menu.render(g); //grafica menù
@@ -169,11 +174,11 @@ public class Game extends Canvas implements Runnable {
     public void constructorServer(int port) {
         server = new Server(port, this);
     }
-    
-    public void constructorClient(){
+
+    public void constructorClient() {
         client = new Client(this);
     }
-    
+
     public void setRunning(boolean running) {
         this.running = running;
     }

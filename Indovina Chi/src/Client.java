@@ -51,9 +51,9 @@ public class Client /*extends Thread*/ {
     }
 
     public void sendMessage(String msg) throws IOException {
-        do {
-            out.print(msg);
-        } while (getConfirmConnection() == "received");
+//        do {
+           out.println(msg);
+//        } while (getConfirmConnection() == "received");
         System.out.println("message sent successfully");
 
         String resp = in.readLine();

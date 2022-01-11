@@ -34,34 +34,40 @@ public class Client /*extends Thread*/ {
     }
 
     public void startConnection(String ip, int port) throws IOException {
-        if(ip.equals("localhost")){
+        if (ip.equals("localhost")) {
             clientSocket = new Socket(InetAddress.getByName(ip), port);
         } else {
             clientSocket = new Socket(ip, port);
         }
-        
+
         out = new PrintWriter(clientSocket.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
 
-    public String getConfirmConnection() throws IOException {
-        String resp = in.readLine();
-        System.out.println("CLIENT: I've received message");
-        return resp;
-    }
+//    public String getConfirmConnection() throws IOException {
+//        String resp = in.readLine();
+//        System.out.println("CLIENT: I've received message");
+//        return resp;
+//    }
 
     public void sendMessage(String msg) throws IOException {
 //        do {
-           out.println(msg);
+        out.println(msg);
 //        } while (getConfirmConnection() == "received");
-        System.out.println("message sent successfully");
+        System.out.println("CLIENT: message sent successfully");
 
         String resp = in.readLine();
 
         String[] v = msg.split(";");
-        int index = Integer.parseInt(v[0].replaceAll("\\P{Print}", ""));
-        String domanda = v[1];
-        
+        int index = -1;
+        String indexSpecial = "", domanda = "";
+        try{
+            index = Integer.parseInt(v[0].replaceAll("\\P{Print}", ""));
+            domanda = v[1];
+        } catch(NumberFormatException ex){
+            indexSpecial = v[0];
+        }
+
         if (resp.equals("Y")) { //se quello che viene ricevuto è sì
             if (index >= 8 && index <= 12) {
                 String coloreCapelli = domanda.substring(12, domanda.length() - 2);
@@ -119,11 +125,12 @@ public class Client /*extends Thread*/ {
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
                     }
                 }
-            } else if (index == 118) {
-                int dialogButton = JOptionPane.OK_OPTION;
-                int dialogResult = JOptionPane.showConfirmDialog(null, "Hai indovinato, hai vinto!");
-                if (dialogResult == dialogButton) {
-                    game.setRunning(false);
+            } else if (indexSpecial != "") {
+                int dialogButton = JOptionPane.showConfirmDialog(null, "HAI VINTO", "HAI VINTO", JOptionPane.OK_CANCEL_OPTION);
+                if(dialogButton == JOptionPane.OK_OPTION){
+                    out.println("exit");
+                } else {
+                    out.println("exit");
                 }
             }
 
@@ -185,11 +192,10 @@ public class Client /*extends Thread*/ {
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
                     }
                 }
-            } else if (index == 118) {
-                int dialogButton = JOptionPane.OK_OPTION;
-                int dialogResult = JOptionPane.showConfirmDialog(null, "Hai sbagliato, hai perso!");
-                if (dialogResult == dialogButton) {
-                    game.setRunning(false);
+            } else if (indexSpecial != "") {
+                int dialogButton = JOptionPane.showConfirmDialog(null, "HAI PERSO", "HAI PERSO", JOptionPane.OK_OPTION);
+                if(dialogButton == JOptionPane.OK_OPTION){
+                    out.println("exit");
                 }
             }
         }

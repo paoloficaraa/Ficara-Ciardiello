@@ -122,8 +122,9 @@ public class WindowConnection extends javax.swing.JFrame {
         game.constructorServer(portServer);
         game.constructorClient();
         game.getServer().start();
+        //game.getClient().start();
         try {
-            do {
+//            do {
                 try {
                     game.getClient().startConnection(ip, port);
                 } catch (ConnectException e) {
@@ -134,8 +135,7 @@ public class WindowConnection extends javax.swing.JFrame {
                         Logger.getLogger(WindowConnection.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-
-            } while (game.getClient().getConfirmConnection() == "accept");
+//            } while (game.getClient().getConfirmConnection() == "accept");
         } catch (IOException ex) {
             Logger.getLogger(WindowConnection.class.getName()).log(Level.SEVERE, null, ex);
         }

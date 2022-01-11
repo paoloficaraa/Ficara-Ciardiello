@@ -45,26 +45,20 @@ public class Server extends Thread {
             //System.out.println(clientSocket.getLocalPort());
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            out.println("accept");
-            System.out.println("Server: I've sent the accept message");
+            //System.out.println("Server: I've sent the accept message");
             String inputLine;
 
             while ((inputLine = in.readLine()) != null) {
-                out.println("received");
+                //out.println("received");
+                
+                if(inputLine.equals("exit"))
+                    break;
+                
+                System.out.println(inputLine + " SERVER");
 
                 String v[] = inputLine.split(";");
-                int index = Integer.parseInt(v[0].replaceAll("\\P{Print}", ""));
+                //int index = Integer.parseInt(v[0].replaceAll("\\P{Print}", ""));
                 String domanda = v[1];
-
-                if (index == 118) { //se la domanda dell'avversario è una domanda vincente
-                    int dialogButton = JOptionPane.YES_NO_OPTION;
-                    int dialogResult = JOptionPane.showConfirmDialog(null, domanda, "Domanda", dialogButton);
-                    if (dialogResult == 0) {
-                        out.println("Y");
-                    } else {
-                        out.println("N");
-                    }
-                }
 
                 int dialogButton = JOptionPane.YES_NO_OPTION;
                 int dialogResult = JOptionPane.showConfirmDialog(null, domanda, "Domanda", dialogButton);
@@ -78,10 +72,9 @@ public class Server extends Thread {
             out.close();
             clientSocket.close();
             serverSocket.close();
-            System.exit(0);
+            game.setRunning(false);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
-
 }

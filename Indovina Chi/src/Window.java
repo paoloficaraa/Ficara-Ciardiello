@@ -52,7 +52,7 @@ public class Window extends Canvas {
         cmb.setBounds(600, 15, 200, 32);
         cmb.setVisible(false);
         frame.add(cmb);
-        
+
         //costruzione textBox per connesione
         txtIp = new JTextField();
         txtIp.setBounds(600, 195, 150, 30);
@@ -63,7 +63,7 @@ public class Window extends Canvas {
         txtPorta.setBounds(600, 295, 150, 30);
         txtPorta.setVisible(false);
         frame.add(txtPorta);
-        
+
         txtServer = new JTextField();
         txtServer.setBounds(600, 325, 150, 30);
         txtServer.setVisible(false);
@@ -82,7 +82,20 @@ public class Window extends Canvas {
             }
         });
         frame.add(btn);
-        
+
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                try {
+                    game.getClient().sendMessage("exit");
+                } catch (IOException ex) {
+                    Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+                } catch(NullPointerException ex){
+                    game.setRunning(false);
+                }
+            }
+        });
+
         frame.add(game);
         frame.setVisible(true);
         game.start();

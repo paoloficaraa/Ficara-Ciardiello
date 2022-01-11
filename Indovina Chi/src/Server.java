@@ -57,15 +57,15 @@ public class Server extends Thread {
                 System.out.println(inputLine + " SERVER");
 
                 String v[] = inputLine.split(";");
-                int index = Integer.parseInt(v[0].replaceAll("\\P{Print}", ""));
+                //int index = Integer.parseInt(v[0].replaceAll("\\P{Print}", ""));
                 String domanda = v[1];
 
                 int dialogButton = JOptionPane.YES_NO_OPTION;
                 int dialogResult = JOptionPane.showConfirmDialog(null, domanda, "Domanda", dialogButton);
                 if (dialogResult == 0) {
-                    out.println(index + ";" + "Y");
+                    out.println("Y");
                 } else {
-                    out.println(index + ";" + "N");
+                    out.println("N");
                 }
             }
             in.close();

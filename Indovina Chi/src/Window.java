@@ -69,7 +69,7 @@ public class Window extends Canvas {
         txtServer.setVisible(false);
         frame.add(txtServer);
 
-        //creazione bottone
+        //crazione bottone
         btn = new JButton("INVIA");
         btn.setBounds(900, 15, 100, 32);
         btn.setVisible(false);

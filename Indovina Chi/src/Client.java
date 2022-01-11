@@ -49,6 +49,7 @@ public class Client /*extends Thread*/ {
 //        System.out.println("CLIENT: I've received message");
 //        return resp;
 //    }
+
     public void sendMessage(String msg) throws IOException {
 //        do {
         out.println(msg);
@@ -60,10 +61,10 @@ public class Client /*extends Thread*/ {
         String[] v = msg.split(";");
         int index = -1;
         String indexSpecial = "", domanda = "";
-        try {
+        try{
             index = Integer.parseInt(v[0].replaceAll("\\P{Print}", ""));
             domanda = v[1];
-        } catch (NumberFormatException ex) {
+        } catch(NumberFormatException ex){
             indexSpecial = v[0];
         }
 
@@ -126,7 +127,7 @@ public class Client /*extends Thread*/ {
                 }
             } else if (indexSpecial != "") {
                 int dialogButton = JOptionPane.showConfirmDialog(null, "HAI VINTO", "HAI VINTO", JOptionPane.OK_CANCEL_OPTION);
-                if (dialogButton == JOptionPane.OK_OPTION) {
+                if(dialogButton == JOptionPane.OK_OPTION){
                     out.println("exit");
                 } else {
                     out.println("exit");
@@ -193,7 +194,7 @@ public class Client /*extends Thread*/ {
                 }
             } else if (indexSpecial != "") {
                 int dialogButton = JOptionPane.showConfirmDialog(null, "HAI PERSO", "HAI PERSO", JOptionPane.OK_OPTION);
-                if (dialogButton == JOptionPane.OK_OPTION) {
+                if(dialogButton == JOptionPane.OK_OPTION){
                     out.println("exit");
                 }
             }

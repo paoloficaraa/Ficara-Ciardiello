@@ -117,12 +117,6 @@ public class Game extends Canvas implements Runnable {
 
             //bottone invia visibile
             window.getBtn().setVisible(true);
-            
-            //scritta personaggio scelto
-            Font fnt = new Font("arial", 1, 20);
-            g.setFont(fnt);
-            g.setColor(Color.BLACK);
-            g.drawString("Il tuo personaggio: " + getPersonaScelta().getNome(), 230, 35);
 
         } else if (gameState == STATE.Menu) {
             menu.render(g); //grafica menù

@@ -34,7 +34,12 @@ public class Client /*extends Thread*/ {
     }
 
     public void startConnection(String ip, int port) throws IOException {
-        clientSocket = new Socket(InetAddress.getByName(ip), port);
+        if(ip.equals("localhost")){
+            clientSocket = new Socket(InetAddress.getByName(ip), port);
+        } else {
+            clientSocket = new Socket(ip, port);
+        }
+        
         out = new PrintWriter(clientSocket.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }

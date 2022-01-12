@@ -64,7 +64,7 @@ public class Client /*extends Thread*/ {
         }
 
         String[] v = msg.split(";");
-        int index = -1;
+        int index = -1, count = 0;
         String indexSpecial = "", domanda = "";
         try {
             index = Integer.parseInt(v[0].replaceAll("\\P{Print}", ""));
@@ -79,6 +79,9 @@ public class Client /*extends Thread*/ {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (coloreCapelli.equals(game.getHandler().getListPeople().get(i).getColoreCapelli().substring(0, game.getHandler().getListPeople().get(i).getColoreCapelli().length() - 1)) == false) { //cerco chi non ha il colore dei capelli uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index >= 13 && index <= 15) {
@@ -86,48 +89,72 @@ public class Client /*extends Thread*/ {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi().substring(0, game.getHandler().getListPeople().get(i).getColoreOcchi().length() - 1)) == false) { //cerco chi non ha il colore degli occhi uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 1) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getOcchiali()) { //cerco chi non ha gli occhiali e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 2) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getBarba()) { //cerco chi non ha la barba e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 3) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getCappello()) { //cerco chi non ha il cappello e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 4) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getBaffi()) { //cerco chi non ha i baffi e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 5) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getNasoGrande()) { //cerco chi non ha il naso grande e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 6) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getGuanceRosse()) { //cerco chi non ha le guance rosse e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 7) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getCapelli()) { //cerco chi non ha i capelli e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (indexSpecial != "") {
@@ -146,6 +173,9 @@ public class Client /*extends Thread*/ {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (coloreCapelli.equals(game.getHandler().getListPeople().get(i).getColoreCapelli().substring(0, game.getHandler().getListPeople().get(i).getColoreCapelli().length() - 1))) { //cerco chi ha il colore dei capelli uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index >= 13 && index <= 15) {
@@ -153,48 +183,72 @@ public class Client /*extends Thread*/ {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi().substring(0, game.getHandler().getListPeople().get(i).getColoreOcchi().length() - 1))) { //cerco chi ha il colore degli occhi uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 1) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getOcchiali()) { //cerco chi ha gli occhiali e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 2) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getBarba()) { //cerco chi ha la barba e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 3) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getCappello()) { //cerco chi ha il cappello e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 4) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getBaffi()) { //cerco chi ha i baffi e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 5) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getNasoGrande()) { //cerco chi ha il naso grande e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 6) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getGuanceRosse()) { //cerco chi ha le guance rosse e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (index == 7) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getCapelli()) { //cerco chi ha i capelli e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
+                        if (i < 25) {
+                            count++;
+                        }
                     }
                 }
             } else if (indexSpecial != "") {
@@ -204,6 +258,7 @@ public class Client /*extends Thread*/ {
                 }
             }
         }
+        game.getHud().increaseScore(count);
     }
 
     public void stopConnection() throws IOException {

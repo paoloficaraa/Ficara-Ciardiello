@@ -185,4 +185,8 @@ public class Game extends Canvas implements Runnable {
     public void setRunning(boolean running) {
         this.running = running;
     }
+    
+    public HUD getHud() {
+        return hud;
+    }
 }

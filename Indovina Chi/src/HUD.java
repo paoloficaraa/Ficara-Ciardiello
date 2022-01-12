@@ -29,8 +29,8 @@ public class HUD {
         g.drawString("Punteggio: " + score, 80, 35);
     }
 
-    public void increaseScore() {
-        score++;
+    public void increaseScore(int quantità) {
+        score += (quantità * quantità);
     }
 
 }

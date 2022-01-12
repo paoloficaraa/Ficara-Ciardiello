@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -122,7 +123,7 @@ public class Game extends Canvas implements Runnable {
             g.setFont(fnt);
             g.setColor(Color.BLACK);
             g.drawString("Il tuo personaggio: " + personaScelta.getNome(), 230, 35);
-            g.drawImage(personaScelta.getImg().getScaledInstance(30, 20, 0), 250, 35, null);
+            g.drawImage(personaScelta.getImg().getScaledInstance(30, 20, Image.SCALE_DEFAULT), 250, 35, null);
 
         } else if (gameState == STATE.Menu) {
             menu.render(g); //grafica menù

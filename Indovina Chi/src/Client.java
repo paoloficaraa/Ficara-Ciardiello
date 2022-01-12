@@ -50,7 +50,6 @@ public class Client /*extends Thread*/ {
 //        System.out.println("CLIENT: I've received message");
 //        return resp;
 //    }
-
     public void sendMessage(String msg) throws SocketException {
 //        do {
         out.println(msg);
@@ -67,10 +66,10 @@ public class Client /*extends Thread*/ {
         String[] v = msg.split(";");
         int index = -1;
         String indexSpecial = "", domanda = "";
-        try{
+        try {
             index = Integer.parseInt(v[0].replaceAll("\\P{Print}", ""));
             domanda = v[1];
-        } catch(NumberFormatException ex){
+        } catch (NumberFormatException ex) {
             indexSpecial = v[0];
         }
 
@@ -78,14 +77,14 @@ public class Client /*extends Thread*/ {
             if (index >= 8 && index <= 12) {
                 String coloreCapelli = domanda.substring(12, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
-                    if (!coloreCapelli.equals(game.getHandler().getListPeople().get(i).getColoreCapelli())) { //cerco chi non ha il colore dei capelli uguale e cambio l'immagine
+                    if (coloreCapelli.equals(game.getHandler().getListPeople().get(i).getColoreCapelli().substring(0, game.getHandler().getListPeople().get(i).getColoreCapelli().length() - 1)) == false) { //cerco chi non ha il colore dei capelli uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index >= 13 && index <= 15) {
                 String coloreOcchi = domanda.substring(12, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
-                    if (!coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi())) { //cerco chi non ha il colore degli occhi uguale e cambio l'immagine
+                    if (!coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi().substring(0, game.getHandler().getListPeople().get(i).getColoreOcchi().length() - 1)) == false) { //cerco chi non ha il colore degli occhi uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
@@ -133,7 +132,7 @@ public class Client /*extends Thread*/ {
                 }
             } else if (indexSpecial != "") {
                 int dialogButton = JOptionPane.showConfirmDialog(null, "HAI VINTO", "HAI VINTO", JOptionPane.OK_CANCEL_OPTION);
-                if(dialogButton == JOptionPane.OK_OPTION){
+                if (dialogButton == JOptionPane.OK_OPTION) {
                     out.println("exit");
                 } else {
                     out.println("exit");
@@ -143,16 +142,16 @@ public class Client /*extends Thread*/ {
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------      
         } else if (resp.equals("N")) { //se quello che viene ricevuto è no
             if (index >= 8 && index <= 12) {
-                String coloreCapelli = domanda.substring(12, domanda.length() - 2);
+                String coloreCapelli = domanda.substring(12, domanda.length() - 1);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
-                    if (coloreCapelli.equals(game.getHandler().getListPeople().get(i).getColoreCapelli())) { //cerco chi ha il colore dei capelli uguale e cambio l'immagine
+                    if (coloreCapelli.equals(game.getHandler().getListPeople().get(i).getColoreCapelli().substring(0, game.getHandler().getListPeople().get(i).getColoreCapelli().length() - 1))) { //cerco chi ha il colore dei capelli uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index >= 13 && index <= 15) {
-                String coloreOcchi = domanda.substring(12, domanda.length() - 2);
+                String coloreOcchi = domanda.substring(12, domanda.length() - 1);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
-                    if (coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi())) { //cerco chi ha il colore degli occhi uguale e cambio l'immagine
+                    if (coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi().substring(0, game.getHandler().getListPeople().get(i).getColoreOcchi().length() - 1))) { //cerco chi ha il colore degli occhi uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
@@ -200,7 +199,7 @@ public class Client /*extends Thread*/ {
                 }
             } else if (indexSpecial != "") {
                 int dialogButton = JOptionPane.showConfirmDialog(null, "HAI PERSO", "HAI PERSO", JOptionPane.OK_OPTION);
-                if(dialogButton == JOptionPane.OK_OPTION){
+                if (dialogButton == JOptionPane.OK_OPTION) {
                     out.println("exit");
                 }
             }

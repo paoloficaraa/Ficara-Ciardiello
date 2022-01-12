@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -50,13 +51,18 @@ public class Client /*extends Thread*/ {
 //        return resp;
 //    }
 
-    public void sendMessage(String msg) throws IOException {
+    public void sendMessage(String msg) throws SocketException {
 //        do {
         out.println(msg);
 //        } while (getConfirmConnection() == "received");
         System.out.println("CLIENT: message sent successfully");
 
-        String resp = in.readLine();
+        String resp = "";
+        try {
+            resp = in.readLine();
+        } catch (IOException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         String[] v = msg.split(";");
         int index = -1;
@@ -73,56 +79,56 @@ public class Client /*extends Thread*/ {
                 String coloreCapelli = domanda.substring(12, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!coloreCapelli.equals(game.getHandler().getListPeople().get(i).getColoreCapelli())) { //cerco chi non ha il colore dei capelli uguale e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index >= 13 && index <= 15) {
                 String coloreOcchi = domanda.substring(12, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi())) { //cerco chi non ha il colore degli occhi uguale e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 1) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getOcchiali()) { //cerco chi non ha gli occhiali e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 2) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getBarba()) { //cerco chi non ha la barba e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 3) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getCappello()) { //cerco chi non ha il cappello e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 4) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getBaffi()) { //cerco chi non ha i baffi e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 5) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getNasoGrande()) { //cerco chi non ha il naso grande e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 6) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getGuanceRosse()) { //cerco chi non ha le guance rosse e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 7) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!game.getHandler().getListPeople().get(i).getCapelli()) { //cerco chi non ha i capelli e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (indexSpecial != "") {
@@ -140,56 +146,56 @@ public class Client /*extends Thread*/ {
                 String coloreCapelli = domanda.substring(12, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (coloreCapelli.equals(game.getHandler().getListPeople().get(i).getColoreCapelli())) { //cerco chi ha il colore dei capelli uguale e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index >= 13 && index <= 15) {
                 String coloreOcchi = domanda.substring(12, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi())) { //cerco chi ha il colore degli occhi uguale e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 1) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getOcchiali()) { //cerco chi ha gli occhiali e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 2) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getBarba()) { //cerco chi ha la barba e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 3) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getCappello()) { //cerco chi ha il cappello e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 4) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getBaffi()) { //cerco chi ha i baffi e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 5) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getNasoGrande()) { //cerco chi ha il naso grande e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 6) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getGuanceRosse()) { //cerco chi ha le guance rosse e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (index == 7) {
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (game.getHandler().getListPeople().get(i).getCapelli()) { //cerco chi ha i capelli e cambio l'immagine
-                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage("src\\images\\imagesWithX\\Inkedimg" + i + 1 + ".jpg"));
+                        game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                     }
                 }
             } else if (indexSpecial != "") {

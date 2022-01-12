@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.net.SocketException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -88,9 +89,9 @@ public class Window extends Canvas {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 try {
                     game.getClient().sendMessage("exit");
-                } catch (IOException ex) {
-                    Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
                 } catch(NullPointerException ex){
+                    game.setRunning(false);
+                } catch(SocketException ex){
                     game.setRunning(false);
                 }
             }

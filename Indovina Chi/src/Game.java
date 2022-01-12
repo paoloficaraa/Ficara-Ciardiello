@@ -121,7 +121,8 @@ public class Game extends Canvas implements Runnable {
             Font fnt = new Font("arial", 1, 20);
             g.setFont(fnt);
             g.setColor(Color.BLACK);
-            g.drawString("Il tuo personaggio: " + getPersonaScelta().getNome(), 230, 35);
+            g.drawString("Il tuo personaggio: " + personaScelta.getNome(), 230, 35);
+            g.drawImage(personaScelta.getImg().getScaledInstance(30, 20, 0), 250, 35, null);
 
         } else if (gameState == STATE.Menu) {
             menu.render(g); //grafica menù

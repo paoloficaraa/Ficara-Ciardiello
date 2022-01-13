@@ -81,6 +81,7 @@ public class Window extends Canvas {
             } catch (IOException ex) {
                 Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
             }
+            game.setTurno(!game.getTurno());
         });
         frame.add(btn);
 

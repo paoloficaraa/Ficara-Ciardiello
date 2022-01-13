@@ -36,6 +36,7 @@ import javax.swing.JOptionPane;
 public class Game extends Canvas implements Runnable {
 
     private boolean running;
+    private Boolean turno;
     private int countWindowPerson;
     private Thread thread;
     private Handler handler;
@@ -44,7 +45,6 @@ public class Game extends Canvas implements Runnable {
     private Person personaScelta; // persona da scegliere a inizio gioco
     private JScelta finestraScelta; // finestra per la scelta del personaggio
     private PersonChosen finestraPersona; //finestra scleta del personaggio (dopo averlo selezionato)
-    private int turno;
     private Server server;
     private Client client;
     private WindowConnection wConnection;
@@ -66,7 +66,6 @@ public class Game extends Canvas implements Runnable {
         this.addMouseListener(finestraScelta);
         this.addMouseListener(finestraPersona);
         personaScelta = null;
-        turno = -1;
 
         window = new Window(1280, 720, "Indovina chi?", this);
         wConnection = new WindowConnection(this);
@@ -130,9 +129,21 @@ public class Game extends Canvas implements Runnable {
             g.setColor(Color.BLACK);
             g.drawString("Il tuo personaggio: " + personaScelta.getNome(), 230, 35);
 
+            if (turno) {
+                this.setEnabled(true);
+            } else {
+                this.setEnabled(false);
+            }
+
             if (countWindowPerson == 0) {
                 wPersonaScelta = new WindowPersonaScelta(this);
                 wPersonaScelta.show();
+                if (turno) {
+                    JOptionPane.showConfirmDialog(null, "E' il tuo turno", "TURNO", JOptionPane.OK_OPTION);
+                } else {
+                    JOptionPane.showConfirmDialog(null, "Tocca all'altro giocatore mandare la domanda", "TURNO", JOptionPane.OK_OPTION);
+                }
+
             }
             countWindowPerson = 1;
 
@@ -168,10 +179,6 @@ public class Game extends Canvas implements Runnable {
         this.personaScelta = personaScelta;
     }
 
-    public void setTurno(int turno) {
-        this.turno = turno;
-    }
-
     public Server getServer() {
         return server;
     }
@@ -198,5 +205,13 @@ public class Game extends Canvas implements Runnable {
 
     public HUD getHud() {
         return hud;
+    }
+
+    public Boolean getTurno() {
+        return turno;
+    }
+
+    public void setTurno(Boolean turno) {
+        this.turno = turno;
     }
 }

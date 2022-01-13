@@ -34,22 +34,45 @@ public class Client /*extends Thread*/ {
         this.game = game;
     }
 
-    public void startConnection(String ip, int port) throws IOException {
+    public void startConnection(String ip, Integer port, Integer portServer) throws IOException {
+        int sum = 0, sum2 = 0;
+
         if (ip.equals("localhost")) {
             clientSocket = new Socket(InetAddress.getByName(ip), port);
+
+            if (port < portServer) {
+                game.setTurno(true);
+            } else {
+                game.setTurno(false);
+            }
+
         } else {
             clientSocket = new Socket(ip, port);
-        }
+            String myIp = InetAddress.getLocalHost().getHostAddress() + portServer.toString();
+            String itsIp /*ho messo its perchè non voglio essere discriminatorio*/ = ip + port.toString();
+            for (int i = 0; i < myIp.length(); i++) {
+                sum += myIp.charAt(i);
+            }
+            for (int i = 0; i < itsIp.length(); i++) {
+                sum2 = itsIp.charAt(i);
+            }
 
+            if (sum > sum2) {
+                game.setTurno(true);
+            } else {
+                game.setTurno(false);
+            }
+
+        }
         out = new PrintWriter(clientSocket.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
+    //    public String getConfirmConnection() throws IOException {
+    //        String resp = in.readLine();
+    //        System.out.println("CLIENT: I've received message");
+    //        return resp;
+    //    }
 
-//    public String getConfirmConnection() throws IOException {
-//        String resp = in.readLine();
-//        System.out.println("CLIENT: I've received message");
-//        return resp;
-//    }
     public void sendMessage(String msg) throws SocketException {
 //        do {
         out.println(msg);

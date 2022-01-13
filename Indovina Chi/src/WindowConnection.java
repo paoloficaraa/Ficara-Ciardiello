@@ -126,7 +126,7 @@ public class WindowConnection extends javax.swing.JFrame {
         try {
 //            do {
                 try {
-                    game.getClient().startConnection(ip, port);
+                    game.getClient().startConnection(ip, port, portServer);
                 } catch (ConnectException e) {
                     try {
                         Thread.sleep(1000);

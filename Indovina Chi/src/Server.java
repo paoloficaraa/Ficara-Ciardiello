@@ -67,6 +67,7 @@ public class Server extends Thread {
                 } else {
                     out.println("N");
                 }
+                game.setTurno(!game.getTurno());
             }
             in.close();
             out.close();

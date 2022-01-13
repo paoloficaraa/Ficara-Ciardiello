@@ -13,6 +13,8 @@
 13;Ha gli occhi azzurri?
 14;Ha gli occhi marroni?
 15;Ha gli occhi verdi?
+16;E' maschio?
+17;E' femmina?
 v;Alex?
 v;Alfred?
 v;Anita?

@@ -1,24 +1,24 @@
-50;70;src\\images\\normalImages\\img1.jpg;false;true;false;true;false;false;false;nero;marrone;Alex
-200;70;src\\images\\normalImages\\img2.jpg;false;true;false;true;false;false;false;rosso;azzurro;Alfred
-350;70;src\\images\\normalImages\\img3.jpg;false;true;false;false;false;true;false;biondo;azzurro;Anita
-500;70;src\\images\\normalImages\\img4.jpg;false;true;false;fasle;true;false;false;nero;marrone;Anne
-650;70;src\\images\\normalImages\\img5.jpg;false;true;false;false;true;false;true;marrone;marrone;Bernard
-800;70;src\\images\\normalImages\\img6.jpg;false;false;true;false;false;true;false; ;verde;Bill
-950;70;src\\images\\normalImages\\img7.jpg;false;true;false;true;false;false;false;biondo;marrone;Charles
-1100;70;src\\images\\normalImages\\img8.jpg;true;true;false;false;false;false;true;rosso;marrone;Claire
-50;270;src\\images\\normalImages\\img9.jpg;false;true;true;false;false;false;false;biondo;marrone;David
-200;270;src\\images\\normalImages\\img10.jpg;false;true;false;false;false;false;true;biondo;marrone;Eric
-350;270;src\\images\\normalImages\\img11.jpg;false;true;false;false;false;false;false;rosso;marrone;Frans
-500;270;src\\images\\normalImages\\img12.jpg;false;true;false;false;false;false;true;bianco;marrone;George
-650;270;src\\images\\normalImages\\img13.jpg;false;false;false;false;true;false;false; ;verde;Herman
-800;270;src\\images\\normalImages\\img14.jpg;true;true;false;false;false;false;false;biondo;marrone;Joe
-950;270;src\\images\\normalImages\\img15.jpg;false;true;false;false;false;false;true;marrone;marrone;Maria
-1100;270;src\\images\\normalImages\\img16.jpg;false;true;false;true;true;false;false;nero;marrone;Max
-50;470;src\\images\\normalImages\\img17.jpg;true;true;false;false;false;false;false;bianco;marrone;Paul
-200;470;src\\images\\normalImages\\img18.jpg;false;true;false;false;true;false;false;bianco;azzurro;Peter
-350;470;src\\images\\normalImages\\img19.jpg;false;true;true;false;false;true;false;nero;marrone;Philip
-500;470;src\\images\\normalImages\\img20.jpg;false;false;true;true;false;false;false; ;marrone;Richard
-650;470;src\\images\\normalImages\\img21.jpg;false;true;false;false;true;true;false;marrone;azzurro;Robert
-800;470;src\\images\\normalImages\\img22.jpg;true;false;false;false;false;false;false; ;marrone;Sam
-950;470;src\\images\\normalImages\\img23.jpg;false;true;false;false;false;true;false;bianco;verde;Susan
-1100;470;src\\images\\normalImages\\img24.jpg;true;false;false;false;false;false;false; ;azzurro;Tom
+50;70;src\\images\\normalImages\\img1.jpg;false;true;false;true;false;false;false;nero;marrone;Alex;false
+200;70;src\\images\\normalImages\\img2.jpg;false;true;false;true;false;false;false;rosso;azzurro;Alfred;false
+350;70;src\\images\\normalImages\\img3.jpg;false;true;false;false;false;true;false;biondo;azzurro;Anita;true
+500;70;src\\images\\normalImages\\img4.jpg;false;true;false;fasle;true;false;false;nero;marrone;Anne;true
+650;70;src\\images\\normalImages\\img5.jpg;false;true;false;false;true;false;true;marrone;marrone;Bernard;false
+800;70;src\\images\\normalImages\\img6.jpg;false;false;true;false;false;true;false; ;verde;Bill;false
+950;70;src\\images\\normalImages\\img7.jpg;false;true;false;true;false;false;false;biondo;marrone;Charles;false
+1100;70;src\\images\\normalImages\\img8.jpg;true;true;false;false;false;false;true;rosso;marrone;Claire;true
+50;270;src\\images\\normalImages\\img9.jpg;false;true;true;false;false;false;false;biondo;marrone;David;false
+200;270;src\\images\\normalImages\\img10.jpg;false;true;false;false;false;false;true;biondo;marrone;Eric;false
+350;270;src\\images\\normalImages\\img11.jpg;false;true;false;false;false;false;false;rosso;marrone;Frans;false
+500;270;src\\images\\normalImages\\img12.jpg;false;true;false;false;false;false;true;bianco;marrone;George;false
+650;270;src\\images\\normalImages\\img13.jpg;false;false;false;false;true;false;false; ;verde;Herman;false
+800;270;src\\images\\normalImages\\img14.jpg;true;true;false;false;false;false;false;biondo;marrone;Joe;false
+950;270;src\\images\\normalImages\\img15.jpg;false;true;false;false;false;false;true;marrone;marrone;Maria;true
+1100;270;src\\images\\normalImages\\img16.jpg;false;true;false;true;true;false;false;nero;marrone;Max;false
+50;470;src\\images\\normalImages\\img17.jpg;true;true;false;false;false;false;false;bianco;marrone;Paul;false
+200;470;src\\images\\normalImages\\img18.jpg;false;true;false;false;true;false;false;bianco;azzurro;Peter;false
+350;470;src\\images\\normalImages\\img19.jpg;false;true;true;false;false;true;false;nero;marrone;Philip;false
+500;470;src\\images\\normalImages\\img20.jpg;false;false;true;true;false;false;false; ;marrone;Richard;false
+650;470;src\\images\\normalImages\\img21.jpg;false;true;false;false;true;true;false;marrone;azzurro;Robert;false
+800;470;src\\images\\normalImages\\img22.jpg;true;false;false;false;false;false;false; ;marrone;Sam;false
+950;470;src\\images\\normalImages\\img23.jpg;false;true;false;false;false;true;false;bianco;verde;Susan;true
+1100;470;src\\images\\normalImages\\img24.jpg;true;false;false;false;false;false;false; ;azzurro;Tom;false

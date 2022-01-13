@@ -26,11 +26,11 @@ public class Person {
 
     private int x, y;
     private Image img;
-    private Boolean occhiali, capelli, barba, baffi, nasoGrande, guanceRosse, cappello;
+    private Boolean occhiali, capelli, barba, baffi, nasoGrande, guanceRosse, cappello, genere;
     private String coloreCapelli, coloreOcchi, nome;
 
     public Person(int x, int y, Image img, Boolean occhiali, Boolean capelli, Boolean barba, Boolean baffi, Boolean nasoGrande, Boolean guanceRosse, Boolean cappello,
-            String coloreCapelli, String coloreOcchi, String nome) {
+            String coloreCapelli, String coloreOcchi, String nome, Boolean genere) {
         this.x = x;
         this.y = y;
         this.img = img;
@@ -44,6 +44,7 @@ public class Person {
         this.coloreCapelli = coloreCapelli;
         this.coloreOcchi = coloreOcchi;
         this.nome = nome;
+        this.genere = genere;
     }
 
     //grafica degli oggetti
@@ -96,8 +97,12 @@ public class Person {
     public Image getImg() {
         return img;
     }
-//----------------------SET--------------------------------    
 
+    public Boolean getGenere() {
+        return genere;
+    }
+
+//----------------------SET--------------------------------    
     public void setImg(Image img) {
         this.img = img;
     }
@@ -108,5 +113,9 @@ public class Person {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public void setGenere(Boolean genere) {
+        this.genere = genere;
     }
 }

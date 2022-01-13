@@ -87,7 +87,7 @@ public class Client /*extends Thread*/ {
             } else if (index >= 13 && index <= 15) {
                 String coloreOcchi = domanda.substring(13, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
-                    if (!coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi().substring(0, game.getHandler().getListPeople().get(i).getColoreOcchi().length() - 1)) == false) { //cerco chi non ha il colore degli occhi uguale e cambio l'immagine
+                    if (coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi().substring(0, game.getHandler().getListPeople().get(i).getColoreOcchi().length() - 1)) == false) { //cerco chi non ha il colore degli occhi uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
                         if (i < 25) {
                             count++;

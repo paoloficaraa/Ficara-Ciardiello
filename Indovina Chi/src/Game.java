@@ -36,6 +36,7 @@ import javax.swing.JOptionPane;
 public class Game extends Canvas implements Runnable {
 
     private boolean running;
+    private int countWindowPerson;
     private Thread thread;
     private Handler handler;
     private HUD hud;
@@ -60,7 +61,7 @@ public class Game extends Canvas implements Runnable {
         finestraScelta = new JScelta(this, handler);
         finestraPersona = new PersonChosen(this);
         menu = new Menu(this, handler);
-        wPersonaScelta = new WindowPersonaScelta(this);
+        wPersonaScelta = null;
         this.addMouseListener(menu);
         this.addMouseListener(finestraScelta);
         this.addMouseListener(finestraPersona);
@@ -71,6 +72,7 @@ public class Game extends Canvas implements Runnable {
         wConnection = new WindowConnection(this);
 
         hud = new HUD();
+        countWindowPerson = 0;
     }
 
     public synchronized void start() {
@@ -127,8 +129,12 @@ public class Game extends Canvas implements Runnable {
             g.setFont(fnt);
             g.setColor(Color.BLACK);
             g.drawString("Il tuo personaggio: " + personaScelta.getNome(), 230, 35);
-            
-            wPersonaScelta.show();
+
+            if (countWindowPerson == 0) {
+                wPersonaScelta = new WindowPersonaScelta(this);
+                wPersonaScelta.show();
+            }
+            countWindowPerson = 1;
 
         } else if (gameState == STATE.Menu) {
             menu.render(g); //grafica menù
@@ -189,7 +195,7 @@ public class Game extends Canvas implements Runnable {
     public void setRunning(boolean running) {
         this.running = running;
     }
-    
+
     public HUD getHud() {
         return hud;
     }

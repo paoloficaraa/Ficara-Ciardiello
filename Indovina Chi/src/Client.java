@@ -75,7 +75,7 @@ public class Client /*extends Thread*/ {
 
         if (resp.equals("Y")) { //se quello che viene ricevuto è sì
             if (index >= 8 && index <= 12) {
-                String coloreCapelli = domanda.substring(12, domanda.length() - 2);
+                String coloreCapelli = domanda.substring(13, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (coloreCapelli.equals(game.getHandler().getListPeople().get(i).getColoreCapelli().substring(0, game.getHandler().getListPeople().get(i).getColoreCapelli().length() - 1)) == false) { //cerco chi non ha il colore dei capelli uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
@@ -85,7 +85,7 @@ public class Client /*extends Thread*/ {
                     }
                 }
             } else if (index >= 13 && index <= 15) {
-                String coloreOcchi = domanda.substring(12, domanda.length() - 2);
+                String coloreOcchi = domanda.substring(13, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (!coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi().substring(0, game.getHandler().getListPeople().get(i).getColoreOcchi().length() - 1)) == false) { //cerco chi non ha il colore degli occhi uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
@@ -169,7 +169,7 @@ public class Client /*extends Thread*/ {
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------      
         } else if (resp.equals("N")) { //se quello che viene ricevuto è no
             if (index >= 8 && index <= 12) {
-                String coloreCapelli = domanda.substring(12, domanda.length() - 1);
+                String coloreCapelli = domanda.substring(13, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (coloreCapelli.equals(game.getHandler().getListPeople().get(i).getColoreCapelli().substring(0, game.getHandler().getListPeople().get(i).getColoreCapelli().length() - 1))) { //cerco chi ha il colore dei capelli uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));
@@ -179,7 +179,7 @@ public class Client /*extends Thread*/ {
                     }
                 }
             } else if (index >= 13 && index <= 15) {
-                String coloreOcchi = domanda.substring(12, domanda.length() - 1);
+                String coloreOcchi = domanda.substring(13, domanda.length() - 2);
                 for (int i = 0; i < game.getHandler().getListPeople().size(); i++) {
                     if (coloreOcchi.equals(game.getHandler().getListPeople().get(i).getColoreOcchi().substring(0, game.getHandler().getListPeople().get(i).getColoreOcchi().length() - 1))) { //cerco chi ha il colore degli occhi uguale e cambio l'immagine
                         game.getHandler().getListPeople().get(i).setImg(Toolkit.getDefaultToolkit().getImage(""));

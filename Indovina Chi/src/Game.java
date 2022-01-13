@@ -47,6 +47,7 @@ public class Game extends Canvas implements Runnable {
     private Server server;
     private Client client;
     private WindowConnection wConnection;
+    private WindowPersonaScelta wPersonaScelta;
     public Window window;
 
     public STATE gameState = STATE.Menu; //enumerazione che indentifica lo stato del gioco
@@ -59,6 +60,7 @@ public class Game extends Canvas implements Runnable {
         finestraScelta = new JScelta(this, handler);
         finestraPersona = new PersonChosen(this);
         menu = new Menu(this, handler);
+        wPersonaScelta = new WindowPersonaScelta(this);
         this.addMouseListener(menu);
         this.addMouseListener(finestraScelta);
         this.addMouseListener(finestraPersona);
@@ -125,6 +127,8 @@ public class Game extends Canvas implements Runnable {
             g.setFont(fnt);
             g.setColor(Color.BLACK);
             g.drawString("Il tuo personaggio: " + personaScelta.getNome(), 230, 35);
+            
+            wPersonaScelta.show();
 
         } else if (gameState == STATE.Menu) {
             menu.render(g); //grafica menù

@@ -52,7 +52,7 @@ public class Server extends Thread {
                 //out.println("received");
 
                 if (inputLine.equals("exit1")) {
-                    int dialogButton = JOptionPane.showConfirmDialog(null, "HAI PERSO", "HAI PERSO", JOptionPane.OK_OPTION);
+                    int dialogButton = JOptionPane.showConfirmDialog(null, "HAI PERSO", "HAI PERSO", JOptionPane.OK_CANCEL_OPTION);
                     if(dialogButton == JOptionPane.OK_OPTION)
                         break;
                 } else if(inputLine.equals("exit2")){

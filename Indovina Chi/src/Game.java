@@ -150,9 +150,9 @@ public class Game extends Canvas implements Runnable {
                 }
                 wPersonaScelta.show();
                 if (turno) {
-                    JOptionPane.showConfirmDialog(null, "E' il tuo turno", "TURNO", JOptionPane.OK_OPTION);
+                    JOptionPane.showConfirmDialog(null, "E' il tuo turno", "TURNO", JOptionPane.OK_CANCEL_OPTION);
                 } else {
-                    JOptionPane.showConfirmDialog(null, "Tocca all'altro giocatore mandare la domanda", "TURNO", JOptionPane.OK_OPTION);
+                    JOptionPane.showConfirmDialog(null, "Tocca all'altro giocatore mandare la domanda", "TURNO", JOptionPane.OK_CANCEL_OPTION);
                 }
 
             }

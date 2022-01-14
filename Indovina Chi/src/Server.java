@@ -53,12 +53,14 @@ public class Server extends Thread {
 
                 if (inputLine.equals("exit1")) {
                     int dialogButton = JOptionPane.showConfirmDialog(null, "HAI PERSO", "HAI PERSO", JOptionPane.OK_CANCEL_OPTION);
-                    if(dialogButton == JOptionPane.OK_OPTION)
+                    if (dialogButton == JOptionPane.OK_OPTION) {
                         break;
-                } else if(inputLine.equals("exit2")){
-                    int dialogButton = JOptionPane.showConfirmDialog(null, "HAI VINTO", "HAI VINTO", JOptionPane.OK_OPTION);
-                    if(dialogButton == JOptionPane.OK_OPTION)
+                    }
+                } else if (inputLine.equals("exit2")) {
+                    int dialogButton = JOptionPane.showConfirmDialog(null, "HAI VINTO", "HAI VINTO", JOptionPane.OK_CANCEL_OPTION);
+                    if (dialogButton == JOptionPane.OK_OPTION) {
                         break;
+                    }
                 }
 
                 System.out.println(inputLine + " SERVER");
@@ -81,7 +83,16 @@ public class Server extends Thread {
             out.close();
             clientSocket.close();
             serverSocket.close();
-            game.setRunning(false);
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            game.window.getBtn().setVisible(false);
+            game.window.getCmb().setVisible(false);
+            game.gameState = STATE.Menu;
+            
+            //oppure invece che ricominciare si può mettere un System.exit(0)
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

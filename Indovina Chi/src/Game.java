@@ -56,6 +56,7 @@ public class Game extends Canvas implements Runnable {
     //costruttore del gioco
     public Game() {
         running = false;
+        turno = false;
         handler = new Handler();
         handler.addPeople();
         finestraScelta = new JScelta(this, handler);
@@ -129,6 +130,11 @@ public class Game extends Canvas implements Runnable {
             g.setColor(Color.BLACK);
             g.drawString("Il tuo personaggio: " + personaScelta.getNome(), 230, 35);
 
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+            }
             if (turno) {
                 this.setEnabled(true);
             } else {
@@ -137,6 +143,11 @@ public class Game extends Canvas implements Runnable {
 
             if (countWindowPerson == 0) {
                 wPersonaScelta = new WindowPersonaScelta(this);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 wPersonaScelta.show();
                 if (turno) {
                     JOptionPane.showConfirmDialog(null, "E' il tuo turno", "TURNO", JOptionPane.OK_OPTION);

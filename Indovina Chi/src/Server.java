@@ -50,10 +50,17 @@ public class Server extends Thread {
 
             while ((inputLine = in.readLine()) != null) {
                 //out.println("received");
-                
-                if(inputLine.equals("exit"))
-                    break;
-                
+
+                if (inputLine.equals("exit1")) {
+                    int dialogButton = JOptionPane.showConfirmDialog(null, "HAI PERSO", "HAI PERSO", JOptionPane.OK_OPTION);
+                    if(dialogButton == JOptionPane.OK_OPTION)
+                        break;
+                } else if(inputLine.equals("exit2")){
+                    int dialogButton = JOptionPane.showConfirmDialog(null, "HAI VINTO", "HAI VINTO", JOptionPane.OK_OPTION);
+                    if(dialogButton == JOptionPane.OK_OPTION)
+                        break;
+                }
+
                 System.out.println(inputLine + " SERVER");
 
                 String v[] = inputLine.split(";");
@@ -69,6 +76,7 @@ public class Server extends Thread {
                 }
                 game.setTurno(!game.getTurno());
             }
+
             in.close();
             out.close();
             clientSocket.close();

@@ -48,13 +48,14 @@ public class Client /*extends Thread*/ {
 
         } else {
             clientSocket = new Socket(ip, port);
-            String myIp = InetAddress.getLocalHost() + portServer.toString();
+            String[] singleMyIp = InetAddress.getLocalHost().toString().split("/");
+            String myIp = singleMyIp[1] + portServer.toString();
             String itsIp /*ho messo its perchè non voglio essere discriminatorio*/ = ip + port.toString();
             for (int i = 0; i < myIp.length(); i++) {
-                sum += myIp.charAt(i);
+                sum += (int)myIp.charAt(i);
             }
             for (int i = 0; i < itsIp.length(); i++) {
-                sum2 = itsIp.charAt(i);
+                sum2 += (int)itsIp.charAt(i);
             }
 
             if (sum > sum2) {
@@ -199,12 +200,11 @@ public class Client /*extends Thread*/ {
                     }
                 }
             } else if (indexSpecial != "") {
-                int dialogButton = JOptionPane.showConfirmDialog(null, "HAI VINTO", "HAI VINTO", JOptionPane.OK_CANCEL_OPTION);
+                int dialogButton = JOptionPane.showConfirmDialog(null, "HAI VINTO", "HAI VINTO", JOptionPane.OK_OPTION);
                 if (dialogButton == JOptionPane.OK_OPTION) {
-                    out.println("exit");
-                } else {
-                    out.println("exit");
+                    out.println("exit1");
                 }
+                game.setRunning(false);
             }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------      
@@ -313,8 +313,9 @@ public class Client /*extends Thread*/ {
             } else if (indexSpecial != "") {
                 int dialogButton = JOptionPane.showConfirmDialog(null, "HAI PERSO", "HAI PERSO", JOptionPane.OK_OPTION);
                 if (dialogButton == JOptionPane.OK_OPTION) {
-                    out.println("exit");
+                    out.println("exit2");
                 }
+                game.setRunning(false);
             }
         }
         game.getHud().increaseScore(count);

@@ -48,7 +48,7 @@ public class Client /*extends Thread*/ {
 
         } else {
             clientSocket = new Socket(ip, port);
-            String myIp = InetAddress.getLocalHost().getHostAddress() + portServer.toString();
+            String myIp = InetAddress.getLocalHost() + portServer.toString();
             String itsIp /*ho messo its perchè non voglio essere discriminatorio*/ = ip + port.toString();
             for (int i = 0; i < myIp.length(); i++) {
                 sum += myIp.charAt(i);

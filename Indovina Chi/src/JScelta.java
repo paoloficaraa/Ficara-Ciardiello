@@ -71,7 +71,7 @@ public class JScelta extends MouseAdapter {
             game.getPersonaScelta().setY(20000);
         }
 
-        MyFile file = new MyFile("src\\Persone\\filePersone.txt"); //persone già costruite dentro questo file di testo
+        MyFile file = new MyFile("datas/Persone/filePersone.txt"); //persone già costruite dentro questo file di testo
         List<String> persone = file.leggi();
         for (String s : persone) {
             String[] temp = s.split(";");

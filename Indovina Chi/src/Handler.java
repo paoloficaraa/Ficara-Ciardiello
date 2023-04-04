@@ -21,7 +21,7 @@ public class Handler {
     private LinkedList<Person> listPeople = new LinkedList<Person>(); //lista delle persone
 
     public void addPeople() {
-        MyFile file = new MyFile("src\\Persone\\filePersone.txt"); //persone già costruite dentro questo file di testo
+        MyFile file = new MyFile("datas/Persone/filePersone.txt"); //persone già costruite dentro questo file di testo
         List<String> persone = file.leggi();
         for (String s : persone) {
             String[] temp = s.split(";");

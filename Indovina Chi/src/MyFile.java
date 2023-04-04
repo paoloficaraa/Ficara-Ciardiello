@@ -1,24 +1,26 @@
+
 import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author HP
  */
-
 //classe per la lettura e scrittura di un file di testo
 public class MyFile {
+
     private String filename;
 
     public MyFile(String filename) {
@@ -26,26 +28,16 @@ public class MyFile {
     }
 
     public List<String> leggi() {
-        List<String> domande = new ArrayList<String>();
-        
+        List<String> domande = new ArrayList<>();
         try {
-            FileReader fr = new FileReader(filename);
-            BufferedReader br = new BufferedReader(fr);
-
-            String line;
-            while (true) {
-                line = br.readLine();
-                if (line == null) {
-                    break;
-                }
-                domande.add(new String(line));
-            }
+            domande = Files.readAllLines(Paths.get(filename));
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            Logger.getLogger(MyFile.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return domande;
     }
+
 
     /*public void scrivi(String s) {
         try {

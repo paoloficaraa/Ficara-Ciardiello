@@ -41,8 +41,8 @@ public class Window extends Canvas {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
 
-        MyFile file = new MyFile("src\\Domande\\fileDomande.txt");
-        List<String> domande = file.leggi();
+      MyFile file = new MyFile("datas/Domande/fileDomande.txt");
+      List<String> domande = file.leggi();
 
         //costruzione comboBox
         cmb = new JComboBox<String>();
@@ -90,9 +90,9 @@ public class Window extends Canvas {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 try {
                     game.getClient().sendMessage("exit");
-                } catch(NullPointerException ex){
+                } catch (NullPointerException ex) {
                     game.setRunning(false);
-                } catch(SocketException ex){
+                } catch (SocketException ex) {
                     game.setRunning(false);
                 }
             }

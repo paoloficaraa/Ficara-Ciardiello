@@ -1,11 +1,13 @@
 
+import com.google.common.io.Resources;
 import java.awt.Canvas;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.SocketException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,8 +43,17 @@ public class Window extends Canvas {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
 
-      MyFile file = new MyFile("datas/Domande/fileDomande.txt");
-      List<String> domande = file.leggi();
+        //MyFile file = new MyFile("datas/Domande/fileDomande.txt");
+        //List<String> domande = file.leggi();
+        URL url = null;
+        List<String> domande = new ArrayList<>();
+        try {
+            url = new URL(
+                "https://raw.githubusercontent.com/paoloficaraa/Ficara-Ciardiello/main/Indovina%20Chi/datas/Domande/fileDomande.txt");
+            domande = Resources.readLines(url, StandardCharsets.UTF_8);
+        } catch (IOException ex) {
+            Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         //costruzione comboBox
         cmb = new JComboBox<String>();
